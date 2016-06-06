@@ -1,0 +1,85 @@
+Regex para Data dd-mm-yy
+/^((((0?[1-9]|[12]\d|3[01])[\.\-\/](0?[13578]|1[02])[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|((0?[1-9]|[12]\d|30)[\.\-\/](0?[13456789]|1[012])[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|((0?[1-9]|1\d|2[0-8])[\.\-\/]0?2[\.\-\/]((1[6-9]|[2-9]\d)?\d{2}))|(29[\.\-\/]0?2[\.\-\/]((1[6-9]|[2-9]\d)?(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00)|00)))|(((0[1-9]|[12]\d|3[01])(0[13578]|1[02])((1[6-9]|[2-9]\d)?\d{2}))|((0[1-9]|[12]\d|30)(0[13456789]|1[012])((1[6-9]|[2-9]\d)?\d{2}))|((0[1-9]|1\d|2[0-8])02((1[6-9]|[2-9]\d)?\d{2}))|(2902((1[6-9]|[2-9]\d)?(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00)|00))))$/
+
+-- Como usar a API SISTELY 
+    -- http://www.bravo-kernel.com/2015/04/how-to-use-a-cakephp-3-rest-api/
+
+
+Comandos do Git !!
+
+git init -- Inicia um repositorio
+
+git checkout [nomeDoBrach] -- Sai do repositorio atual e vai para outro
+
+git checkout -b [nomeDoBrach] -- Sai do repositorio atual e vai para outro criando-o 
+
+git add [arquivos que voce quer adicionar] -- Adiciona arquivos ao repositorio
+
+git status -- indica a situação dos arquivos internos e externos do repositorio se foi alterado, se foi deletado ou arquivos novos...
+
+git commit -m "Comentario do que voce fez" -- geralmente só pode ser dado apos um comando de alteração, ele seria um comando de fixação é OBRIGATORIO!!!! OBRIGATORIO MESMO!!!!
+                                           -- Ele irá fixar as alterações feitas e registrar na linha do tempo!
+
+git merge [nomeDoBrach] -- ele pega o Branch externo e soma com o Master (projeto Raiz) assim fixando tudo!
+
+git diff -- ver diferença entre passado futuro ou entre branchs
+
+
+EXEMPLO
+
+//
+
+    git init
+    
+    git add . -- adiona tudo
+    
+    git commit -m "Iniciando Projeto" -- Falo que comecei o projeto
+    
+    /* Fiz alterações em algum arquivo */
+    
+    git status -- diz oque foi feito
+    
+    git diff 
+    
+    git add [nomeDoArqQueAlterei]
+    
+    git commit -m "Oque eu fiz"
+    
+    git status
+    
+    git checkout -b novoBrach
+    
+    /* fiz alterações mais não terminei, surgiu outra coisa que tenho que arrumar mas não quero testar o que eu fiz ainda... */
+    
+    git checkout master 
+    
+    git checkout -b fixandoErro
+    
+    /* Arrumo o erro no arq. "x.php"
+    
+    git add x.php
+    
+    git commit -m "erroFixado"
+    
+    git checkout master
+    
+    git merge fixandoErro
+    
+    git checkout novoBranch
+    
+    /* Continuo oq estava fazendo ate terminar */
+    
+    git add [arquivos que editei] 
+    
+    git commit -m "oque eu fiz..."
+    
+    git checkout master
+    
+    git merge novoBrach -- Possivelmente poderá dar erro de comparação se você editou o mesmo arquivo nos branchs externos. edite corfome deverá ficar e retorne e de o merge denovo
+    
+    Pronto produto final feito
+    
+    
+
+
+//

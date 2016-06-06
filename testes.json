@@ -1,0 +1,18 @@
+{
+    "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/add.json",
+    "tbUsuario": {
+        "nm_usuario": "Sistely Nazarateh", 
+        "dt_nascimento": "1997-06-08",
+        "ic_sexo": "O",
+        "nm_email": "sist@sist.sist",
+        "cd_senha": "123456",
+        "dt_cadastro": "2016-05-30 22:44:00",
+        "ic_ativo": "1",
+        "ic_nivel": "1"
+    },
+    "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/token.json",
+    "tbUsuario": {
+        "nm_email": "sist@sist.sist",
+        "cd_senha": "123456"
+    }
+}

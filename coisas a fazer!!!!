@@ -1,0 +1,73 @@
+PARTE API
+(Modificar o banco)
+1. Criar as Models conforme o Banco de Dados.
+2. Criar os Controllers para as funcionalidades abaixo: (F)
+(BEA)  2.1  Adicionar doador. (Feito) - Criar adicionar junto ao Endereço
+(BEA)  2.2  Adicionar instituição. - Criar esse() 
+(BEA)  2.3  Alterar dados do doador.  
+(BEA)  2.4  Alterar dados da instituição. 
+(BEA)  2.5  Inativar cadastros. 
+(BEA)  2.6  Reativar cadastros.  
+       2.7  Adicionar doação do doador 
+         2.7.1 Adicionar produto da doação 
+            2.7.1.1 Adicionar fotos do produto ( 
+       2.8  Listar oportunidades de doação por tipo de instituição e suas nescessidades caso ela esteja disponivel por proximidade de endereço. (A fazer)
+       2.9  Aceitar doação alterando atributos na tabela (a fazer)
+       2.10 Adicionar mensagem de contato do enviado. (a fazer) 
+       2.11 Listar mensagens para o recepitor. (a fazer) 
+(BEA)  2.12 Adicionar noticia da instituição
+(BEA)  2.13 Alterar notícia da instituição 
+(BEA)  2.14 Remover noticia da insituição 
+       2.15 Adicionar imagem de perfil da instituição (fazer função)
+       2.16 Alterar de perfil imagem da instituição (fazer função)
+       2.17 Remover de perfil imagem da instituição (fazer função)
+       2.18 Adicionar mais Endereços. 
+       2.19 Remover endereços. 
+       2.20 Alterar Endereços. 
+(Hugo) 2.21 Login e Autenticação - JWT.
+    
+PARTE APP 
+
+3. Criar formulários de (pelo angular):
+    3.1 Cadastro do doador . (ADICIONAR E EDITAR)
+    3.2 Cadastro de Instituição;
+    3.3 Cadastro de Doação;
+    3.4 Cadastro de Notícia;
+    3.5 Cadastro de Imagens;
+    3.6 Cadastro de Mensagem;
+    3.7 Cadastro de Endereços;
+    3.8 Login.
+    
+4. Criar páginas:
+    4.1 Index
+        4.1.1 Login 
+        4.1.2 Cadastro Doador
+        4.1.3 Sobre (feito)
+        4.1.4 Contato (feito)
+    4.2 Doador
+        4.2.1 Perfil (funções) 
+        4.2.2 Visualização do doador
+    4.3 Instituição
+        4.3.1 Perfil ADM -- Doador 
+        4.3.2 Visualização da instituição
+    4.4 Pesquisa
+        4.4.1 Instiuição
+        4.4.2 Doador
+        4.4.3 Endereço
+        4.4.4 Noticia
+    4.5 Doações
+        4.5.1 Visualizar doação
+            4.5.1.2 Aceitar doação
+            4.5.1.3 Rejeitar doação
+        4.5.2 Fazer doação
+        4.5.3 Remover doação.
+        
+    4.6 Noticias
+        4.6.1 Adicionar
+        4.6.2 Alterar
+        4.6.3 Remover
+        4.6.4 feed
+    
+
+5. Documentar tudo! 
+    
