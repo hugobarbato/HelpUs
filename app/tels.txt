@@ -1,0 +1,31 @@
+<div id="tel2" class="form-group hiddenTel">
+									  <label class="col-md-4 control-label" for="telefone2">Telefone 2</label>  
+									  <div class="col-md-6">
+									  <input id="telefone2" name="telefone2" type="text" placeholder="(__)_____-____" class="form-control input-md phone_with_ddd" >
+									  </div>
+									  <button type="button" class="btn btn-danger" id="btnRemov2" name="btnRemov2" onclick="removeTel()">Remover</button>
+									</div>
+			
+									<div id="tel3" class="form-group hiddenTel">
+									  <label class="col-md-4 control-label" for="telefone3">Telefone 3</label>  
+									  <div class="col-md-6">
+									  <input id="telefone3" name="telefone3" type="text" placeholder="(__)_____-____" class="form-control input-md phone_with_ddd" >
+									  </div>
+									  <button type="button" class="btn btn-danger" id="btnRemov3" name="btnRemov3" onclick="removeTel()">Remover</button>
+									</div>
+									
+									<div id="tel4" class="form-group hiddenTel">
+									  <label class="col-md-4 control-label" for="telefone3">Telefone 4</label>  
+									  <div class="col-md-6">
+									  <input id="telefone4" name="telefone4" type="text" placeholder="(__)_____-____" class="form-control input-md phone_with_ddd" >
+									  </div>
+									  <button type="button" class="btn btn-danger" id="btnRemov4" name="btnRemov4" onclick="removeTel()">Remover</button>
+									</div>
+									
+									<div id="tel5" class="form-group hiddenTel">
+									  <label class="col-md-4 control-label" for="telefone3">Telefone 5</label>  
+									  <div class="col-md-6">
+									  <input id="telefone5" name="telefone5" type="text" placeholder="(__)_____-____" class="form-control input-md phone_with_ddd" >
+									  </div>
+									  <button type="button" class="btn btn-danger" id="btnRemov5" name="btnRemov5" onclick="removeTel()">Remover</button>
+									</div>

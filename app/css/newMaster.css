@@ -1,0 +1,51 @@
+.div-up{
+	position: fixed;
+	z-index: 1031;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+	
+}
+
+.btnClose{
+	position: fixed;
+	z-index: 1040;
+	top:0;
+	right: 0;
+}
+
+.checkTitleLabel{
+	font-size: 1.4em;
+	color: #ACB6C3;
+	padding: 10px 0px;
+	font-weight: 100;
+}
+
+.checkboxLabel{
+	float: left;
+	margin-top: 0.3em;
+	margin-right: 1.3em;
+	font-size: 1.2em; 
+	font-weight: 100;
+	color: #ACB6C3;
+}
+
+.checkboxSexo{
+	position: relative;
+	float: left;
+	
+}
+
+.lembrarLabel{
+	color: #ACB6C3;
+	margin-top: 0.7em;
+}
+
+
+.voluntarioLabel{
+	font-weight: 100;
+	
+	margin: 3em 0;
+}

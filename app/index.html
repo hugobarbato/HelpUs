@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Software de distribuição de donativos.">
+    <meta name="author" content="Hugo, Beatriz, Carolina e Sistely">
+
+    <title>HelpUs</title>
+    
+    <!-- Angular -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="lib/angular-aria/angular-aria.js"></script> 
+	<script src="lib/angular-animate/angular-animate.js"></script> 
+	<script src="lib/angular-material/angular-material.js"></script>
+	<script src="lib/satellizer/satellizer.min.js"></script>
+    
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="lib/freelancer/freelancer.css" rel="stylesheet">
+    
+    <!-- Aplicação JS -->
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/Lato.css" rel="stylesheet" type="text/css">
+    <link href="css/newMaster.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top" class="index">
+	<!-- jQuery -->
+    <script src="lib/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="lib/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="lib/jquery/jquery.easing.min.js"></script>
+    <script src="lib/freelancer/classie.js"></script>
+    <script src="lib/freelancer/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="lib/freelancer/jqBootstrapValidation.js"></script>
+    <script src="lib/freelancer/freecontact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="lib/freelancer/freelancer.js"></script>
+	
+	
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Help Us</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#page-top">Help Us</a>
+			</div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Acesso</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Sobre</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+	
+	<div ui-view></div>
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<div class="div-up">
+		<div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl">
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
+						<div class="modal-body">
+							<h2 style="text-align:center">Cadastro</h2>
+							<hr class="star-primary">
+							<br>
+						</div>
+					</div>
+					<div class="col-lg-2 col-sm-2 btnClose">
+						<a href="#">
+							<i class="fa fa-times fa-4x" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div class="row">
+						<div class="col-lg-8 col-lg-offset-2">
+							É valido: {{cadastroForm.$valid}} <br/>
+							É invalido: {{cadastroForm.$invalid}} <br/>
+							<form name="cadastroForm">
+							
+								<!-- Input Nome-->
+								<div class="row control-group">
+									<div ng-if="">
+										<span>Campo Obrigatorio</span>
+									</div>
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Nome Completo</label>
+										<input type="text" ng-model="user.nm_usuario" name="nome" class="form-control" placeholder="Name Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-required="true"/>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+							
+								<!-- Input Data de Nascimento-->
+							
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										
+										<md-content>
+											<label>Data de Nascimento</label>
+											<md-datepicker ng-model="user.dt_nascimento" name="nascimento" class="form-control" placeholder="Data De Nascimento" ng-required="true">
+											
+											</md-datepicker>
+											<p class="help-block text-danger"></p>
+										</md-content>
+									</div>
+								</div>
+					
+								<!-- Input Email-->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Email</label>
+										<input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Please enter your email address.">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+							
+								<!-- Input Senha -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Senha</label>
+										<input id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md senha" required data-validation-required-message="Please enter your phone number.">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								
+								<!-- Input SEXO-->
+								<div class="form-group">
+                                	<form>
+										<label class="col-md-4 control-label checkTitleLabel text-left" for="sexo">Sexo</label>
+										<div class="col-md-6"> 
+    										<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoMasculino" value="M" checked="checked" style="margin: .7em 0;">
+                                    		<label for="sexoMasculino" class="checkboxLabel">Masculino</label>
+                                    		<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoFeminino" value="F" style="margin: .7em 0;">
+                                    		<label for="sexoFeminino" class="checkboxLabel">Feminino</label>
+                                    		<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoOutros" value="O" style="margin: .7em 0;">
+                                     		<label for="sexoOutros" class="checkboxLabel">Outros</label>
+                                     	</div>
+                             		</form>
+								</div>
+								
+								<legend></legend>
+									
+								<!-- Titulo 1ª parte-->
+								<legend></legend>
+								<h3>Contatos</h3>
+									
+								<!-- inputs Telefones -->
+								<div class="row control-group">
+										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
+											<label> Telefones</label>
+											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+										</div>
+										<div>
+											   <button type="button" class="form-group btn btn-info " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-plus"></i></button>
+										</div>
+									</div>
+								<div class="row control-group">
+										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
+											<label> Telefones</label>
+											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+										</div>
+										<div>
+                                            <button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
+										</div>
+									</div>
+								<div class="row control-group">
+										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
+											<label> Telefones</label>
+											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+										</div>
+										<div>
+                                            <button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
+										</div>
+									</div>
+								<div class="row control-group">
+										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
+											<label> Telefones</label>
+											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+										</div>
+										<div>
+											<button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
+										</div>
+									</div>
+								
+								<!-- Título 2ª parte -->
+								<h3>Endereço</h3>
+									
+								<!-- input CEP -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>CEP</label>
+									  	<input id="CEP" name="CEP" type="text" placeholder="CEP" class="form-control input-md" maxlength="8"   onblur="pesquisacep(this.value);">
+									</div>
+								</div>
+									
+								<!-- input Estados -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Estado</label>
+										<input id="estado" name="estado" type="text" placeholder="Estado" class="form-control input-md" size="30" >						
+									</div>
+								</div>
+									
+								<!-- input Cidade -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Cidade</label>
+										<input id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md"  size="25" >
+									</div>
+								</div>
+									
+								<!-- input Bairro -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Bairro</label>
+									  	<input id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control input-md" size="25" >
+									</div>
+								</div>
+									
+								<!-- Input Endereço -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Endereço</label>
+										<input id="endereco" name="endereco" class="form-control" placeholder="Endereço" type="text" size="45">
+									</div>
+								</div>
+									
+								<!-- input Numero -->
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Numero</label>
+									  	<input id="numero" name="numero" type="text" placeholder="Numero" class="form-control input-md" size="5" >
+									</div>
+								</div>
+									  
+								<!-- input Complemento -->	  
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Complemento</label>
+								  		<input id="complemento" name="complemento" type="text" placeholder="Complemento" class="form-control input-md" >
+								  	</div>
+								</div>
+
+								<!-- Divisoria Checked Termo-->
+								<div class="col-lg-8 col-lg-offset-2">
+									<div class="modal-body"></div>
+								
+									<!-- Checked Voluntário -->
+									<div class="form-group col-md-12 ">
+										<input type="checkbox" name="termo" id="termo" value="S">
+										<label class="termoLabel" for="termo">Concordo com os termos de utilização do software <a href="termo.html">descritos aqui.</a>  </label>
+									</div>
+								</div>
+								
+								<!-- Divisoria Button-->
+								<div class="col-lg-8 col-lg-offset-2">
+									<div class="modal-body"></div>	
+									
+									<!-- Button -->
+									<div class="form-group">
+										
+										<div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
+								  			<a href="#" type="reset" id="btnEnviar" name="btnEnviar" class="btn btn-info btn-block">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</a>
+										</div>
+									  
+										<div class="col-xs-4 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+											<button type="submit" id="confirm" name="confirm" class="btn btn-info btn-block" value='false'>Enviar</button>
+										</div>
+										
+									</div>
+										
+								</div>
+									
+							</form>	
+						</div>
+					</div>
+					
+				<span class="col-md-12 col-sm-12" style="height:50px;"></span>
+				</div>
+			</div>
+		</div>
+</div>
