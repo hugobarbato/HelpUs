@@ -2,9 +2,12 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Entity\TbDoacao;
+use App\Model\Entity\TbProduto;
 use Cake\Event\Event;
 use Cake\Network\Exception;
 use Cake\Utility\Security;
+use Cake\ORM\TableRegistry;
 use Firebase\JWT\JWT;
 /**
  * TbUsuario Controller
@@ -13,12 +16,6 @@ use Firebase\JWT\JWT;
  */
 class TbUsuarioController extends AppController
 {
-    
-    public function initialize()
-    {
-        parent::initialize();
-        $this->Auth->allow(['add', 'token']);
-    }
     
     /**
      * Index method
@@ -74,6 +71,38 @@ class TbUsuarioController extends AppController
         });
         return $this->Crud->execute();
     }
+    
+    public function doar(){
+        $data = $this->request->data;
+        if(!empty($data)){
+            $doacao = new tbDoacao();
+            $doacao->set([
+                    'dt_oferecimento_doacao' => date("Y-m-d H:i:s"),
+                    'ic_ofertado' => 1,
+                    'cd_usuario' => $data["cd_usuario"]
+                ]);
+            $doacoesTable = TableRegistry::get('tbDoacao');
+            $doacao = $doacoesTable->save($doacao);
+            
+            foreach($data["tbProdutos"] as $produto){
+                $produto = new tbProduto();
+                $produto->set([
+                    'cd_categoria' => $produto["cd_categoria"],
+                    'ds_produto'=>$produto["ds_produto"],
+                    'qt_produto'=>$produto["qt_produto"],
+                    'nm_produto'=>$produto["nm_produto"],
+                    'cd_doacao'=>$doacao['cd_doacao']
+                ]);
+                $produtoTable = TableRegistry::get('tbProduto');
+                $produtos = $doacoesTable->save($produto);
+            }
+            
+        }
+        $response = $produtos;
+        $this->set(compact('response'));
+        $this->set('_serialize', ['response']);
+    }
+    
 
     /**
      * Edit method
@@ -84,20 +113,19 @@ class TbUsuarioController extends AppController
      */
     public function edit($id = null)
     {
-        $tbUsuario = $this->TbUsuario->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        $tbUsuario = $this->TbUsuario->get($id);
+        if ($this->request->is(['post', 'put'])) {
             $tbUsuario = $this->TbUsuario->patchEntity($tbUsuario, $this->request->data);
             if ($this->TbUsuario->save($tbUsuario)) {
-                $this->Flash->success(__('The tb usuario has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $response = 1;
             } else {
-                $this->Flash->error(__('The tb usuario could not be saved. Please, try again.'));
+                $response = 0;
             }
+        }else {
+                $response = 0;
         }
-        $this->set(compact('tbUsuario'));
-        $this->set('_serialize', ['tbUsuario']);
+        $this->set(compact('response'));
+        $this->set('_serialize', ['response']);
     }
 
     /**
@@ -119,23 +147,5 @@ class TbUsuarioController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
-    public function token()
-    {
-        $user = $this->Auth->identify();
-        $this->set('response', $user);
-       /* if(){
-			$user = $this->Auth->identify();
-// 			$exUser = [
-// 				    	"cd_usuario" => $user['cd_usuario'],
-// 				    	"nm_usuario" => $user['nm_usuario'],
-// 				    	"active" => $user['active'],
-// 				    	"ic_nivel" => $user['ic_nivel']
-// 				      ];
-// 			$token = JWT::encode($exUser, Configure::read('Security.salt'));
-// 			$response = array('data' => $token);
-			$this->set('response', $user);
-		}else {
-			throw new NotAcceptableException(__('Email or password is wrong.'));
-		}*/
-    }
+  
 }

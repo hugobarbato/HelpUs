@@ -2,12 +2,12 @@ PARTE API
 (Modificar o banco)
 1. Criar as Models conforme o Banco de Dados.
 2. Criar os Controllers para as funcionalidades abaixo: (F)
-(BEA)  2.1  Adicionar doador. (Feito) - Criar adicionar junto ao Endereço
+(BEA)  2.1  Adicionar doador. (Feito) 
 (BEA)  2.2  Adicionar instituição. - Criar esse() 
-(BEA)  2.3  Alterar dados do doador.  
+(BEA)  2.3  Alterar dados do doador.  (FEITO)
 (BEA)  2.4  Alterar dados da instituição. 
-(BEA)  2.5  Inativar cadastros. 
-(BEA)  2.6  Reativar cadastros.  
+(BEA)  2.5  Aceitar instituição. 
+(BEA)  2.6  Rejeitar instituição.  
        2.7  Adicionar doação do doador 
          2.7.1 Adicionar produto da doação 
             2.7.1.1 Adicionar fotos do produto ( 

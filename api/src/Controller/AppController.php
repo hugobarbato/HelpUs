@@ -44,7 +44,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         
-         $this->loadComponent('Crud.Crud', [
+        $this->loadComponent('Crud.Crud', [
             'actions' => [
                 'Crud.Index',
                 'Crud.View',
@@ -58,32 +58,6 @@ class AppController extends Controller
                 'Crud.ApiQueryLog'
             ]
         ]);
-        $this->loadComponent('Auth', [
-            'storage' => 'Memory',
-            'authenticate' => [
-                'Form' => [
-                    'scope' => ['tbUsuario.active' => 1],
-                    'userModel' => 'tbUsuario',
-                    'fields' => [
-                        'username' => 'nm_email', 
-                        'password' => 'cd_senha'
-                        ]
-                ],
-                'ADmad/JwtAuth.Jwt' => [
-                    'parameter' => 'token',
-                    'userModel' => 'tbUsuario',
-                    'scope' => ['tbUsuario.active' => 1],
-                    'fields' => [
-                        'username' => 'nm_email', 
-                        'password' => 'cd_senha'
-                    ],
-                    'queryDatasource' => true
-                ]
-            ],
-            'unauthorizedRedirect' => false,
-            'checkAuthIn' => 'Controller.initialize'
-        ]);
-        
         
     }
 
@@ -101,4 +75,9 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+    
+    public function beforeFilter(\Cake\Event\Event $event)
+  {
+      $this->Crud->mapAction('edit', 'Crud.Edit');
+  }
 }

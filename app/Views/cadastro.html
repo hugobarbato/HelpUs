@@ -1,4 +1,4 @@
-<div class="div-up">
+<div ng-controller="cadastroCtrl" class="div-up">
 		<div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
 				<div class="lr">
@@ -20,6 +20,7 @@
 							<i class="fa fa-times fa-4x" aria-hidden="true"></i>
 						</a>
 					</div>
+					
 					<div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
 							É valido: {{cadastroForm.$valid}} <br/>
@@ -27,30 +28,25 @@
 							<form name="cadastroForm">
 							
 								<!-- Input Nome-->
-								<div class="row control-group">
-									<div ng-if="">
-										<span>Campo Obrigatorio</span>
-									</div>
-									<div class="form-group col-xs-12 floating-label-form-group controls">
+								<md-input-container class="row control-group form-group col-xs-12 floating-label-form-group controls">
 										<label>Nome Completo</label>
-										<input type="text" ng-model="user.nm_usuario" name="nome" class="form-control" placeholder="Name Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-required="true"/>
+										<input ng-model="user.nm_usuario" name="nome" placeholder="Nome Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" required>
 										<p class="help-block text-danger"></p>
-									</div>
-								</div>
+										<div ng-messages="cadastroForm.nome.$error">
+          									<div ng-message="required">Campo obrigatório.</div>
+        								</div>
+									
+								</md-input-container>
 							
 								<!-- Input Data de Nascimento-->
 							
-								<div class="row control-group">
-									<div class="form-group col-xs-12 floating-label-form-group controls">
-										
-										<md-content>
-											<label>Data de Nascimento</label>
-											<md-datepicker ng-model="user.dt_nascimento" name="nascimento" class="form-control" placeholder="Data De Nascimento" ng-required="true">
-											
-											</md-datepicker>
-											<p class="help-block text-danger"></p>
-										</md-content>
-									</div>
+								<div class="row control-group datepickerdemoBasicUsage">
+									<md-content>
+										<label>Data de Nascimento</label>
+										<md-datepicker ng-model="user.dt_nascimento" name="nascimento" md-placeholder="Data De Nascimento" required>
+										</md-datepicker>
+										<p></p>
+									</md-content>
 								</div>
 					
 								<!-- Input Email-->
@@ -74,7 +70,7 @@
 								<!-- Input SEXO-->
 								<div class="form-group">
                                 	<form>
-										<label class="col-md-4 control-label checkTitleLabel text-left" for="sexo">Sexo</label>
+										<label class="col-md-4 control-label checkTitleLabel text-left" for="sexo">Gênero</label>
 										<div class="col-md-6"> 
     										<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoMasculino" value="M" checked="checked" style="margin: .7em 0;">
                                     		<label for="sexoMasculino" class="checkboxLabel">Masculino</label>
@@ -224,6 +220,7 @@
 							</form>	
 						</div>
 					</div>
+					
 					
 				<span class="col-md-12 col-sm-12" style="height:50px;"></span>
 				</div>

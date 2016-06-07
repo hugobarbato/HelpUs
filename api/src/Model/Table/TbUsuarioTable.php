@@ -34,6 +34,9 @@ class TbUsuarioTable extends Table
         $this->hasMany('tbEndereco', [
             'className' => 'tbEndereco'
         ]);
+        $this->hasMany('tbDoacao', [
+            'className' => 'tbDoacao'
+        ]);
         
     }
 
@@ -100,13 +103,13 @@ class TbUsuarioTable extends Table
         return $rules;
     }
     
-    public function beforeSave(Event $event) {
+    /*public function beforeSave(Event $event) {
         $entity = $event->data['entity'];
         if ($entity->isNew()) {
             $hasher = new DefaultPasswordHasher();
             $entity->cd_senha = $hasher->hash($entity->cd_senha);
         }
         return true;
-    }
+    }*/
     
 }

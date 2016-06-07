@@ -11,6 +11,8 @@ use App\Controller\AppController;
 class TbInstituicaoController extends AppController
 {
 
+
+
     /**
      * Index method
      *
@@ -52,14 +54,13 @@ class TbInstituicaoController extends AppController
         if ($this->request->is('post')) {
             $tbInstituicao = $this->TbInstituicao->patchEntity($tbInstituicao, $this->request->data);
             if ($this->TbInstituicao->save($tbInstituicao)) {
-                $this->Flash->success(__('The tb instituicao has been saved.'));
-                return $this->redirect(['action' => 'index']);
+               $response = array('code' => 1);
             } else {
-                $this->Flash->error(__('The tb instituicao could not be saved. Please, try again.'));
+               $response = array('code' => 0);
             }
         }
-        $this->set(compact('tbInstituicao'));
-        $this->set('_serialize', ['tbInstituicao']);
+        $this->set(compact('response'));
+        $this->set('_serialize', ['response']);
     }
 
     /**

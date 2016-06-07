@@ -1,4 +1,8 @@
 {
+    URL API : https://help-us-developerhbr.c9users.io/api/,
+    + Controler : tbUsuario,
+    + Metodo: add / view / index
+    + .json
     "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/add.json",
     "tbUsuario": {
         "nm_usuario": "Sistely Nazarateh", 
