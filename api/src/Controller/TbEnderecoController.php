@@ -1,6 +1,6 @@
 <?php
 namespace App\Controller;
-
+use Cake\Datasource\ConnectionManager;
 use App\Controller\AppController;
 
 /**
@@ -50,12 +50,22 @@ class TbEnderecoController extends AppController
     {
         $tbEndereco = $this->TbEndereco->newEntity();
         if ($this->request->is('post')) {
-            $tbEndereco = $this->TbEndereco->patchEntity($tbEndereco, $this->request->data);
+            $data = $this->request->data;
+            $tbEndereco = $this->TbEndereco->patchEntity($tbEndereco, $data);
+            //$endereco = $data['tbEndereco'];
+            $conn = ConnectionManager::get('default');
+            $stmt = $conn->execute(
+                'select cd_bairro from tb_bairro where nm_bairro = ? and cd_cidade = 
+                (select cd_cidade from tb_cidade where nm_cidade = ? and cd_estado = 
+                (select cd_estado from tb_estado where sg_estado = ?));',
+                [$data['nm_bairro'], $data['nm_cidade'], $data['sg_estado']]
+            );
+            $id = $stmt->fetch('assoc');
+            $tbEndereco->set('cd_bairro', $id['cd_bairro']);
             if ($this->TbEndereco->save($tbEndereco)) {
-                $this->Flash->success(__('The tb endereco has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $response = 1;
             } else {
-                $this->Flash->error(__('The tb endereco could not be saved. Please, try again.'));
+                $response = 0;
             }
         }
         $this->set(compact('tbEndereco'));

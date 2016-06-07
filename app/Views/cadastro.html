@@ -20,7 +20,6 @@
 							<i class="fa fa-times fa-4x" aria-hidden="true"></i>
 						</a>
 					</div>
-					
 					<div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
 							É valido: {{cadastroForm.$valid}} <br/>
@@ -28,44 +27,49 @@
 							<form name="cadastroForm">
 							
 								<!-- Input Nome-->
-								<md-input-container class="row control-group form-group col-xs-12 floating-label-form-group controls">
-										<label>Nome Completo</label>
-										<input ng-model="user.nm_usuario" name="nome" placeholder="Nome Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" required>
-										<p class="help-block text-danger"></p>
-										<div ng-messages="cadastroForm.nome.$error">
-          									<div ng-message="required">Campo obrigatório.</div>
-        								</div>
-									
-								</md-input-container>
-							
-								<!-- Input Data de Nascimento-->
-							
-								<div class="row control-group datepickerdemoBasicUsage">
-									<md-content>
-										<label>Data de Nascimento</label>
-										<md-datepicker ng-model="user.dt_nascimento" name="nascimento" md-placeholder="Data De Nascimento" required>
-										</md-datepicker>
-										<p></p>
-									</md-content>
+								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
+        							<label>Nome Completo</label>
+									<input required class="form-control" name="nome" placeholder="Nome Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-model="user.nm_usuario">
+       						 		<p class="help-block text-danger"></p>
+       						 		<div ng-messages="cadastroForm.nome.$error"></div>
+     							</md-input-container>
+								
+								<!-- Input Data de Nascimento !!!refazer-->
+								<div ng-controller="cadastroCtrl" style='padding: 40px;' ng-cloak>
+								<md-content>
+									<md-datepicker ng-model="user.dt_nascimento" md-placeholder="Enter date"></md-datepicker>
+								</md-content>
 								</div>
+						<!--
+								<div style='padding: 40px;' ng-cloak class="row control-group">
+									<div>
+										
+											<label>Data de Nascimento</label>
+											<md-datepicker ng-model="user.dt_nascimento" name="nascimento" md-placeholder="Data De Nascimento">
+											
+											</md-datepicker>
+											<p class="help-block text-danger"></p>
+										
+									</div>
+								</div>
+								-->
 					
 								<!-- Input Email-->
-								<div class="row control-group">
-									<div class="form-group col-xs-12 floating-label-form-group controls">
+								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
+									
 										<label>Email</label>
-										<input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Please enter your email address.">
+										<input ng-pattern="/^.+@.+\..+$/" type="email" ng-model="user.nm_email" class="form-control" placeholder="Email" name="email" required>
 										<p class="help-block text-danger"></p>
-									</div>
-								</div>
+									
+									<div ng-messages="cadastroForm.email.$error"></div>
+								</md-input-container>
 							
 								<!-- Input Senha -->
-								<div class="row control-group">
-									<div class="form-group col-xs-12 floating-label-form-group controls">
-										<label>Senha</label>
-										<input id="senha" name="senha" type="password" placeholder="Senha" class="form-control input-md senha" required data-validation-required-message="Please enter your phone number.">
-										<p class="help-block text-danger"></p>
-									</div>
-								</div>
+								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
+									<label>Senha</label>
+									<input md-maxlength="16" name="senha" ng-model="user.nm_senha" ng-pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" placeholder="Senha" class="form-control input-md senha" required>
+									<p class="help-block text-danger"></p>
+								</md-input-container>
 								
 								<!-- Input SEXO-->
 								<div class="form-group">
@@ -220,7 +224,6 @@
 							</form>	
 						</div>
 					</div>
-					
 					
 				<span class="col-md-12 col-sm-12" style="height:50px;"></span>
 				</div>

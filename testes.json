@@ -18,5 +18,34 @@
     "tbUsuario": {
         "nm_email": "sist@sist.sist",
         "cd_senha": "123456"
+    },
+    "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/doar  .json",
+    "tbDoacao":{
+        "cd_usuario": "24",
+        "tbProdutos": {
+            "0":{
+                "cd_categoria": "1",
+                "ds_produto": "Sabonete liquido da xuxa",
+                "qt_produto": "666",
+                "nm_produto": "Xuxanete",
+                "tbImgProdutos":{
+                    "0": {
+                        "nm_endereco":"asdaiekruksajudakwub",
+                        "nm_extensao":"jpg"
+                    },
+                    "1": {
+                        "nm_endereco":"abalajnfuskebdubasda",
+                        "nm_extensao":"jpg"
+                    }
+                }
+            },
+            "1":{
+                "cd_categoria": "1",
+                "ds_produto": "Sabonete liquido da xuxa",
+                "qt_produto": "666",
+                "nm_produto": "Xuxanete"
+            }
     }
+}
+    
 }

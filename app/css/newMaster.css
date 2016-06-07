@@ -50,19 +50,14 @@
 	margin: 3em 0;
 }
 
-/* CSS sisty*/
-
+/*Sisty testando css abaixo, por favor nao apagar e se quiserem add css acima deste comentario */
+.datepickerdemoBasicUsage {
+  /** Demo styles for mdCalendar. */ }
+  
 .datepickerdemoBasicUsage md-content {
     padding-bottom: 200px; }
+    
 .datepickerdemoBasicUsage .validation-messages {
     font-size: 12px;
     color: #dd2c00;
     margin: 10px 0 0 25px; }
-    
-.inputdemoErrors .inputErrorsApp {
-  min-height: 48px; }
-
-.inputdemoErrors md-input-container > p {
-  font-size: 0.8em;
-  text-align: left;
-  width: 100%; }
