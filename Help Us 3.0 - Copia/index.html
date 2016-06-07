@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="app" lang="en">
 
 <head>
 
@@ -10,6 +10,15 @@
     <meta name="author" content="">
 
     <title>Help Us</title>
+    
+    <!-- Angular -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="lib/angular-aria/angular-aria.js"></script> 
+	<script src="lib/angular-animate/angular-animate.js"></script> 
+	<script src="lib/angular-material/angular-material.js"></script>
+	<script src="lib/satellizer/satellizer.min.js"></script>
+	<script src="lib/flow/dist/ng-flow-standalone.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -376,7 +385,7 @@
 					<div class="col-lg-8 col-lg-offset-2">
 						<form name="sentMessage" id="contactForm" novalidate>
 							
-							<!-- Input Nome-->
+							<!-- Input Nome -->
 							<div class="row control-group">
 								<div class="form-group col-xs-12 floating-label-form-group controls">
 									<label>Nome Completo</label>
@@ -416,7 +425,7 @@
 							<!-- Input SEXO-->
 							<div class="form-group">
                                 <form>
-									<label class="col-md-4 control-label checkTitleLabel text-left" for="sexo">Sexo</label>
+									<label class="col-md-4 control-label checkTitleLabel text-left" for="sexo">Gênero</label>
 										<div class="col-md-6"> 
     								<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoMasculino" value="M" checked="checked" style="margin: .7em 0;">
                                     <label for="sexoMasculino" class="checkboxLabel">Masculino</label>

@@ -36,6 +36,9 @@ class TbUsuarioTable extends Table
         ]);
         $this->hasMany('tbDoacao', [
             'className' => 'tbDoacao'
+        ]); 
+        $this->hasMany('tbContatoTelefone', [
+            'className' => 'tbContatoTelefone'
         ]);
         
     }

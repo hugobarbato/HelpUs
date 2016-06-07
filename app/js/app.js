@@ -1,5 +1,5 @@
 /*global angular*/
-    angular.module("app", ['ui.router', 'ngMaterial', 'satellizer'])
+    angular.module("app", ['ui.router', 'ngMaterial', 'satellizer', 'ui.utils.masks'])
     //Config
 		.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 	  //
@@ -65,7 +65,6 @@
     	
     	
     	.controller("cadastroCtrl", function($scope){
-    		
     		$scope.showHints = true;
 			 $scope.user = {
     			nome: "",

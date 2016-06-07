@@ -1,8 +1,8 @@
 <?php
 namespace App\Model\Entity;
-
 use Cake\ORM\Entity;
-
+use Cake\Validation\Validator;
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * TbUsuario Entity.
  *
@@ -19,18 +19,35 @@ use Cake\ORM\Entity;
  */
 class TbUsuario extends Entity
 {
-
-    /**
-     * Fields that can be mass assigned using newEntity() or patchEntity().
-     *
-     * Note that when '*' is set to true, this allows all unspecified fields to
-     * be mass assigned. For security purposes, it is advised to set '*' to false
-     * (or remove it), and explicitly make individual fields accessible as needed.
-     *
-     * @var array
-     */
+   
+   
+   public function validationDefault(Validator $validator)
+    {
+        return $validator
+            ->notEmpty('username', 'Usuário é necessário')
+            ->notEmpty('password', 'Senha é necessária')
+            ->notEmpty('role', 'Função é necessária')
+            ->add('role', 'inList', [
+                'rule' => ['inList', ['admin', 'author']],
+                'message' => 'Por favor informe uma função válida'
+            ]);
+    }
     protected $_accessible = [
         '*' => true,
         'cd_usuario' => false,
     ];
+    
+
+    protected function _setPassword($password)
+    {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
 }
+
+
+
+
+
+
+
+

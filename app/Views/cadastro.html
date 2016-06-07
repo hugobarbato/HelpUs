@@ -29,58 +29,52 @@
 								<!-- Input Nome-->
 								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
         							<label>Nome Completo</label>
-									<input required class="form-control" name="nome" placeholder="Nome Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-model="user.nm_usuario">
+									<input required="true" class="form-control" name="nome" placeholder="Nome Completo" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-model="user.nome" ng-maxlength="100">
        						 		<p class="help-block text-danger"></p>
-       						 		<div ng-messages="cadastroForm.nome.$error"></div>
+       						 		<div ng-if="cadastroForm.nome.$invalid && cadastroForm.nome.$dirty" class="col-sm-12 col-md-12 alert alert-danger"> 
+       						 			<div ng-show="cadastroForm.nome.$error.required">Por favor, preencha o campo nome!</div>
+       									<div ng-show="cadastroForm.nome.$error.pattern">Informe o nome social completa.</div>
+              							<div ng-show="cadastroForm.nome.$error.maxlength">Nome muito longo!</div>
+       						 		</div>
      							</md-input-container>
-								
+								 
 								<!-- Input Data de Nascimento !!!refazer-->
-								<div ng-controller="cadastroCtrl" style='padding: 40px;' ng-cloak>
-								<md-content>
-									<md-datepicker ng-model="user.dt_nascimento" md-placeholder="Enter date"></md-datepicker>
-								</md-content>
+								<div class="row control-group">
+									<md-datepicker ng-model="user.nascimento" md-placeholder="Enter date"></md-datepicker>
 								</div>
-						<!--
-								<div style='padding: 40px;' ng-cloak class="row control-group">
-									<div>
-										
-											<label>Data de Nascimento</label>
-											<md-datepicker ng-model="user.dt_nascimento" name="nascimento" md-placeholder="Data De Nascimento">
-											
-											</md-datepicker>
-											<p class="help-block text-danger"></p>
-										
-									</div>
-								</div>
-								-->
-					
+								
 								<!-- Input Email-->
 								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
 									
 										<label>Email</label>
-										<input ng-pattern="/^.+@.+\..+$/" type="email" ng-model="user.nm_email" class="form-control" placeholder="Email" name="email" required>
-										<p class="help-block text-danger"></p>
-									
-									<div ng-messages="cadastroForm.email.$error"></div>
+										<input ng-pattern="/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/" type="email" ng-model="user.email" class="form-control" placeholder="Email" name="email" required="true">
+									<div ng-if="cadastroForm.email.$invalid && cadastroForm.email.$dirty" class="col-sm-12 col-md-12 alert alert-danger">
+									<div ng-show="cadastroForm.email.$error.required">Por favor, preencha e-mail!</div>
+									<div ng-show="cadastroForm.email.$error.pattern">Por favor, informe um e-mail válido.</div>
+									</div>
 								</md-input-container>
 							
 								<!-- Input Senha -->
 								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
 									<label>Senha</label>
-									<input md-maxlength="16" name="senha" ng-model="user.nm_senha" ng-pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password" placeholder="Senha" class="form-control input-md senha" required>
-									<p class="help-block text-danger"></p>
+									<input name="senha" ng-model="user.senha"  type="password" placeholder="Senha" class="form-control input-md senha" required="true" ng-minlength="8" ng-maxlenght="20">
+									<div ng-show="cadastroForm.senha.$invalid && cadastroForm.senha.$dirty" class="col-sm-12 col-md-12 alert alert-danger">
+									<span ng-show="cadastroForm.senha.$error.required">Por favor, preencha o campo Senha Padrão!</span>
+									<span ng-show="cadastroForm.senha.$error.minlength">O campo nome deve ter no mínimo 8 a 20 caracteres.</span>
+									<span ng-show="cadastroForm.senha.$error.maxlength">Senha muito longa!</span>
+									</div>
 								</md-input-container>
 								
 								<!-- Input SEXO-->
 								<div class="form-group">
-                                	<form>
+                                	<form required="true">
 										<label class="col-md-4 control-label checkTitleLabel text-left" for="sexo">Gênero</label>
 										<div class="col-md-6"> 
-    										<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoMasculino" value="M" checked="checked" style="margin: .7em 0;">
+    										<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoMasculino" value="M" checked="checked" style="margin: .7em 0;" ng-model="user.sexo">
                                     		<label for="sexoMasculino" class="checkboxLabel">Masculino</label>
-                                    		<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoFeminino" value="F" style="margin: .7em 0;">
+                                    		<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoFeminino" value="F" style="margin: .7em 0;" ng-model="user.sexo">
                                     		<label for="sexoFeminino" class="checkboxLabel">Feminino</label>
-                                    		<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoOutros" value="O" style="margin: .7em 0;">
+                                    		<input type="radio" class="checkbox checkboxSexo" name="sexo" id="sexoOutros" value="O" style="margin: .7em 0;" ng-model="user.sexo">
                                      		<label for="sexoOutros" class="checkboxLabel">Outros</label>
                                      	</div>
                              		</form>
@@ -96,34 +90,35 @@
 								<div class="row control-group">
 										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
 											<label> Telefones</label>
-											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+											<input id="telefone1" ng-model="user.contato1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" ui-br-phone-number="ui-br-phone-number">
 										</div>
 										<div>
 											   <button type="button" class="form-group btn btn-info " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-plus"></i></button>
 										</div>
-									</div>
-								<div class="row control-group">
+										<div ng-if="cadastroForm.telefone1.$invalid && cadastroForm.telefone1.$dirty" class="col-sm-12 col-md-12 alert alert-danger">
+											<div ng-show="cadastroForm.telefone1.$error.required">Por favor, preencha o campo Telefone!</div>
+											<div ng-show="cadastroForm.telefone1.$error.pattern">Informe um telefone valido. </div>
+											<div ng-show="cadastroForm.telefone1.$error.brPhoneNumber">Campo telefone deve ter o formato (DD) DDDDD-DDDD.</div>
+											</div>
 										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
 											<label> Telefones</label>
-											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+											<input id="telefone2" name="telefone2"  ng-model="user.2" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" ui-br-phone-number="ui-br-phone-number" >
 										</div>
 										<div>
                                             <button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
 										</div>
-									</div>
-								<div class="row control-group">
+									
 										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
 											<label> Telefones</label>
-											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+											<input id="telefone3" name="telefone3" ng-model="user.contato3" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd"  ui-br-phone-number="ui-br-phone-number" >
 										</div>
 										<div>
                                             <button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
 										</div>
-									</div>
-								<div class="row control-group">
+									
 										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
 											<label> Telefones</label>
-											<input id="telefone1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" >
+											<input id="telefone4" name="telefone4"  ng-model="user.contato4" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd"  ui-br-phone-number="ui-br-phone-number">
 										</div>
 										<div>
 											<button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
@@ -137,7 +132,10 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>CEP</label>
-									  	<input id="CEP" name="CEP" type="text" placeholder="CEP" class="form-control input-md" maxlength="8"   onblur="pesquisacep(this.value);">
+									  	<input id="cep" name="cep" required="true"; ng-model="endereco.cep" ng-keyup="pegaCep()" type="text" placeholder="CEP" class="form-control input-md" maxlength="8"   onblur="pesquisacep(this.value);" ui-br-cep-mask>
+									</div>
+									<div ng-if="cadastroForm.cep.$invalid && cadastroForm.cep.$dirty" class="col-sm-12 col-md-12 alert alert-danger">
+									<div ng-show="cadastroForm.cep.$error.required">Por favor, informe o CEP.</div>
 									</div>
 								</div>
 									
@@ -145,7 +143,7 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>Estado</label>
-										<input id="estado" name="estado" type="text" placeholder="Estado" class="form-control input-md" size="30" >						
+										<input ng-model="endereco.estado" id="estado" name="estado" type="text" placeholder="Estado" class="form-control input-md" size="30" >						
 									</div>
 								</div>
 									
@@ -153,7 +151,7 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>Cidade</label>
-										<input id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md"  size="25" >
+										<input ng-model="endereco.cidade" id="cidade" name="cidade" type="text" placeholder="Cidade" class="form-control input-md"  size="25" >
 									</div>
 								</div>
 									
@@ -161,7 +159,7 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>Bairro</label>
-									  	<input id="bairro" name="bairro" type="text" placeholder="Bairro" class="form-control input-md" size="25" >
+									  	<input id="bairro" ng-model="endereco.bairro" name="bairro" type="text" placeholder="Bairro" class="form-control input-md" size="25" >
 									</div>
 								</div>
 									
@@ -169,7 +167,7 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>Endereço</label>
-										<input id="endereco" name="endereco" class="form-control" placeholder="Endereço" type="text" size="45">
+										<input id="endereco" ng-model="endereco.endereco" name="endereco" class="form-control" placeholder="Endereço" type="text" size="45">
 									</div>
 								</div>
 									
@@ -177,7 +175,7 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>Numero</label>
-									  	<input id="numero" name="numero" type="text" placeholder="Numero" class="form-control input-md" size="5" >
+									  	<input id="numero" name="numero" ng-model="endereco.numero" type="text" placeholder="Numero" class="form-control input-md" size="5" >
 									</div>
 								</div>
 									  
@@ -185,7 +183,7 @@
 								<div class="row control-group">
 									<div class="form-group col-xs-12 floating-label-form-group controls">
 										<label>Complemento</label>
-								  		<input id="complemento" name="complemento" type="text" placeholder="Complemento" class="form-control input-md" >
+								  		<input id="complemento" name="complemento" ng-model="endereco.complemento" type="text" placeholder="Complemento" class="form-control input-md" >
 								  	</div>
 								</div>
 

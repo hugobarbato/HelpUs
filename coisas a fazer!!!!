@@ -2,26 +2,26 @@ PARTE API
 (Modificar o banco)
 1. Criar as Models conforme o Banco de Dados.
 2. Criar os Controllers para as funcionalidades abaixo: (F)
-(BEA)  2.1  Adicionar doador. (Feito) 
-(BEA)  2.2  Adicionar instituição. - Criar esse() 
-(BEA)  2.3  Alterar dados do doador.  (FEITO)
+(HBR)  2.1  Adicionar doador. (Feito) 
+(BEA)  2.2  Adicionar instituição. 
+(HBR)  2.3  Alterar dados do doador.  (FEITO)
 (BEA)  2.4  Alterar dados da instituição. 
 (BEA)  2.5  Aceitar instituição. 
 (BEA)  2.6  Rejeitar instituição.  
-       2.7  Adicionar doação do doador 
-         2.7.1 Adicionar produto da doação 
-            2.7.1.1 Adicionar fotos do produto ( 
+       2.7  Adicionar doação do doador (FEITO)
+         2.7.1 Adicionar produto da doação (FEITO)
+            2.7.1.1 Adicionar fotos do produto (FEITO) 
        2.8  Listar oportunidades de doação por tipo de instituição e suas nescessidades caso ela esteja disponivel por proximidade de endereço. (A fazer)
        2.9  Aceitar doação alterando atributos na tabela (a fazer)
-       2.10 Adicionar mensagem de contato do enviado. (a fazer) 
-       2.11 Listar mensagens para o recepitor. (a fazer) 
+  //      2.10 Adicionar mensagem de contato do enviado. (a fazer)      \\\ 
+ //       2.11 Listar mensagens para o recepitor. (a fazer)              \\\
 (BEA)  2.12 Adicionar noticia da instituição
 (BEA)  2.13 Alterar notícia da instituição 
 (BEA)  2.14 Remover noticia da insituição 
        2.15 Adicionar imagem de perfil da instituição (fazer função)
        2.16 Alterar de perfil imagem da instituição (fazer função)
        2.17 Remover de perfil imagem da instituição (fazer função)
-       2.18 Adicionar mais Endereços. 
+       2.18 Adicionar mais Endereços. (FEITO)
        2.19 Remover endereços. 
        2.20 Alterar Endereços. 
 (Hugo) 2.21 Login e Autenticação - JWT.
