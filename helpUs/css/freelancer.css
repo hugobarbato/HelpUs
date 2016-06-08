@@ -371,7 +371,7 @@ footer .footer-below {
 }
 
 .scroll-top {
-    z-index: 1049;
+    z-index: 10;
     position: fixed;
     right: 2%;
     bottom: 2%;
@@ -432,7 +432,7 @@ footer .footer-below {
 }
 
 .portfolio-modal .close-modal .lr {
-    z-index: 1051;
+    z-index: 10;
     width: 1px;
     height: 75px;
     margin-left: 35px;
@@ -443,7 +443,7 @@ footer .footer-below {
 }
 
 .portfolio-modal .close-modal .lr .rl {
-    z-index: 1052;
+    z-index: 10;
     width: 1px;
     height: 75px;
     background-color: #2c3e50;

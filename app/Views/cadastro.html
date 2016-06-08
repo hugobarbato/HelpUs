@@ -1,4 +1,4 @@
-<div ng-controller="cadastroCtrl" class="div-up">
+<div ng-controller="cadastroCtrl" >
 		<div class="modal-content">
 			<div class="close-modal" data-dismiss="modal">
 				<div class="lr">
@@ -39,10 +39,15 @@
      							</md-input-container>
 								 
 								<!-- Input Data de Nascimento !!!refazer-->
-								<div class="row control-group">
-									<md-datepicker ng-model="user.nascimento" md-placeholder="Enter date"></md-datepicker>
-								</div>
-								
+								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
+										<label>Data Nascimento</label>
+									<input type="date" required="true" class="form-control" name="nascimento" placeholder="Data de nascimento" ng-pattern="/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/" ng-model="user.nascimento">
+									<h2>{{cadastroForm.nasciemnto.$error}}</h2>
+									<div ng-if="cadastroForm.nascimento.$invalid && cadastroForm.nasciemnto.$dirty" class="col-sm-12 col-md-12 alert alert-danger"> 
+       						 			<div ng-show="cadastroForm.nasciemnto.$error.required">Por favor, preencha o campo Data de Nascimento!</div>
+       									<div ng-show="cadastroForm.nasciemnto.$error.pattern">Formato  inválido DD/MM/YYYY.</div>
+       						 		</div>
+								</md-input-container>
 								<!-- Input Email-->
 								<md-input-container class="md-block row control-group form-group col-xs-12 floating-label-form-group controls">
 									
@@ -88,40 +93,14 @@
 									
 								<!-- inputs Telefones -->
 								<div class="row control-group">
-										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
+										<div class="form-group col-xs-8 col-sm-12 col-md-12 floating-label-form-group controls">
 											<label> Telefones</label>
 											<input id="telefone1" ng-model="user.contato1" name="telefone1" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" ui-br-phone-number="ui-br-phone-number">
-										</div>
-										<div>
-											   <button type="button" class="form-group btn btn-info " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-plus"></i></button>
 										</div>
 										<div ng-if="cadastroForm.telefone1.$invalid && cadastroForm.telefone1.$dirty" class="col-sm-12 col-md-12 alert alert-danger">
 											<div ng-show="cadastroForm.telefone1.$error.required">Por favor, preencha o campo Telefone!</div>
 											<div ng-show="cadastroForm.telefone1.$error.pattern">Informe um telefone valido. </div>
 											<div ng-show="cadastroForm.telefone1.$error.brPhoneNumber">Campo telefone deve ter o formato (DD) DDDDD-DDDD.</div>
-											</div>
-										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
-											<label> Telefones</label>
-											<input id="telefone2" name="telefone2"  ng-model="user.2" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd" ui-br-phone-number="ui-br-phone-number" >
-										</div>
-										<div>
-                                            <button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
-										</div>
-									
-										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
-											<label> Telefones</label>
-											<input id="telefone3" name="telefone3" ng-model="user.contato3" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd"  ui-br-phone-number="ui-br-phone-number" >
-										</div>
-										<div>
-                                            <button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
-										</div>
-									
-										<div class="form-group col-xs-8 col-sm-10 col-md-10 floating-label-form-group controls">
-											<label> Telefones</label>
-											<input id="telefone4" name="telefone4"  ng-model="user.contato4" type="text" placeholder="Telefone" class="form-control input-md phone_with_ddd"  ui-br-phone-number="ui-br-phone-number">
-										</div>
-										<div>
-											<button type="button" class="form-group btn btn-danger " name="btnAdd" onclick="addTel()" style="height:50px;margin-top:25px;"><i class="glyphicon glyphicon-trash"></i></button>
 										</div>
 									</div>
 								
