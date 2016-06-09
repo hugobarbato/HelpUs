@@ -1,4 +1,5 @@
 //LOGIN
+/*global angular*/
 angular.module('app').controller("loginCtrl", function($scope, $auth){
     		
 	    	$scope.logar = function(provider){

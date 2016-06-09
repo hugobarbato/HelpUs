@@ -12,14 +12,16 @@ git init -- Inicia um repositorio
 git checkout [nomeDoBrach] -- Sai do repositorio atual e vai para outro
 
 git checkout -b [nomeDoBrach] -- Sai do repositorio atual e vai para outro criando-o 
-
+// Sequencia primordia --------------------------------------------------------------------------------------------------------------
 git add [arquivos que voce quer adicionar] -- Adiciona arquivos ao repositorio
 
 git status -- indica a situação dos arquivos internos e externos do repositorio se foi alterado, se foi deletado ou arquivos novos...
 
 git commit -m "Comentario do que voce fez" -- geralmente só pode ser dado apos um comando de alteração, ele seria um comando de fixação é OBRIGATORIO!!!! OBRIGATORIO MESMO!!!!
                                            -- Ele irá fixar as alterações feitas e registrar na linha do tempo!
-
+                                         
+git push -f origin master
+\\ --------------------------------------------------------------------------------------------------------- ------------------------
 git merge [nomeDoBrach] -- ele pega o Branch externo e soma com o Master (projeto Raiz) assim fixando tudo!
 
 git diff -- ver diferença entre passado futuro ou entre branchs
