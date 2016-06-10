@@ -1,12 +1,17 @@
 /*global angular*/
     angular.module("app", [
     	'ui.router',
-    	'ngMaterial', 
+    	'ngMaterial',
+    	'ngMessages', 
     	'satellizer', 
     	'ui.utils.masks'
     ])
     //Config
-	  .config(function($stateProvider, $urlRouterProvider, $authProvider) {
+	  .config(function($mdThemingProvider, $stateProvider, $urlRouterProvider, $authProvider) {
+	  	
+	  	$mdThemingProvider.theme('default')
+	  		.primaryPalette('blue')
+    		.accentPalette('pink');;
 	  //
 	  // For any unmatched url, redirect to /home
 	  $urlRouterProvider.otherwise("/");
@@ -52,10 +57,9 @@
 
 	
 	    
-})
-	  .run(function($rootScope){
+});
+	  /*.run(function($rootScope){
 	  	$rootScope.$on('$stateChangeSuccess',function(){
 		    $("html, body").animate({ scrollTop: 0 }, 200);
 		})
-	  });
-    	
+	  });*/
