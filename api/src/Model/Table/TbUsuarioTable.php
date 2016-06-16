@@ -71,7 +71,11 @@ class TbUsuarioTable extends Table
         $validator
             ->requirePresence('nm_email', 'create')
             ->notEmpty('nm_email')
-            ->add('nm_email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->add('nm_email', 'unique', [
+                'rule' => 'validateUnique', 
+                'message' => __('Email em uso!'),
+                'provider' => 'table'
+            ]);
 
         $validator
             ->requirePresence('cd_senha', 'create')
@@ -102,15 +106,14 @@ class TbUsuarioTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['nm_email']));
+        $rules->add($rules->isUnique(['nm_email'], 'Email em uso!!'));
         return $rules;
     }
     
     /*public function beforeSave(Event $event) {
         $entity = $event->data['entity'];
         if ($entity->isNew()) {
-            $hasher = new DefaultPasswordHasher();
-            $entity->cd_senha = $hasher->hash($entity->cd_senha);
+            $entity->cd_senha = (new DefaultPasswordHasher())->hash($entity->cd_senha);
         }
         return true;
     }*/

@@ -1,65 +1,73 @@
-<div class="div-up">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
+<div>
+    <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
                     </div>
                 </div>
             </div>		
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-					
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+				<div class="modal-body">
+	                <div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
 						<div class="modal-body">
-	                        <div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
-								<div class="modal-body">
-									<h2 style="text-align:center">Login</h2>
-									<hr class="star-primary">
-									<br>
-								</div>
-							</div>
-							<div class="col-lg-2 col-sm-2 btnClose">
-								<a href="#">
-									<i class="fa fa-times fa-4x" aria-hidden="true"></i>
-								</a>
-							</div>
-					
+							<h2 style="text-align:center">Login</h2>
+							<hr class="star-primary">
 							<br>
-							
-	                    	<form name="login" id="loginuser" novalidate>
-		                        <div class="row control-group">
-		                            <div class="form-group col-xs-12 floating-label-form-group controls" method="POST" action="php/functions/login_usuario.php">
-		                                <label>Email</label>
-		                                <input type="email" ng-model="user.email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor entre com seu e-mail.">
-		                                <p class="help-block text-danger"></p>
-		                            </div>
-		                        </div>
-								<div class="row control-group">
-		                            <div class="form-group col-xs-12 floating-label-form-group controls">
-		                                <label>Senha</label>
-		                                <input type="password" ng-model="user.password" class="form-control" name="senha" id="senha" placeholder="Senha" required=/>
-		                                <p class="help-block text-danger"></p>
-		                            </div>
-		                        </div>
-								<br>
-								<div class="form-group"> 
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-info col-md-4 col-md-offset-4" ng-click="logar()">Entrar</button>
-									</div>
-								</div>
-								<br>	
-								<div class="form-group"> 
-									<div class="col-md-6 col-md-offset-3 text-centraliado">
-										<label><a id="abri" href="#" class ="esqSenha">Esqueceu a senha?</a></label>
-									</div>
-								</div>
-							</form>
-							
-							
-							<span class="col-md-12 col-sm-12" style="height:230px;"></span>
 						</div>
-                    </div>
-                </div>
+					</div>
+					<div class="col-lg-2 col-sm-2 btnClose">
+						<a href="#">
+							<i class="fa fa-times fa-4x" aria-hidden="true"></i>
+						</a>
+					</div>
+					<br>
+					<form name="login" id="loginuser" novalidate>
+						<div  class=" col-md-12 col-sm-12" id="containerLogin">
+						<!-- Input Email-->
+		        		<md-input-container class=" col-md-8 col-md-offset-2 col-sm-12">
+		            	 	<label>Email para acesso</label>
+		            		<input type="email" ng-model="user.email" class="form-control" name="email" ng-required="true" size="200">
+		            		<div ng-messages="cadastroForm.email.$error" role="alert">
+		            			<div ng-message="required">Por favor, preencha o e-mail!</div>
+		            		</div>
+		        		</md-input-container>
+		        	
+		        		<!-- Input Senha -->
+		        		<md-input-container class=" col-md-8 col-md-offset-2 col-sm-12">
+		            		<label>Senha</label>
+		            		<input name="senha" ng-model="user.senha"  type="password" ng-required="true" ng-minlength="8" ng-maxlenght="20" size="20">
+		            		<div ng-messages="cadastroForm.senha.$error" role="alert">
+		            			<span ng-message="required">Por favor, preencha o campo Senha Padrão!</span>
+		            			<span ng-message="minlength">O campo nome deve ter no mínimo 8 a 20 caracteres.</span>
+		            			<span ng-message="maxlength">Senha muito longa!</span>
+		            		</div>
+		        		</md-input-container>
+						
+	            		<div  class=" col-md-12 col-sm-12" id="containerConfirmacao">
+	            			
+			        		<!-- Divisoria Button-->
+			        		<div class="col-lg-8 col-lg-offset-2" style="text-align:center">
+			            		<div class="modal-body"></div>	
+					            <!-- Button -->
+					            <div class="form-group">
+					            	<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+					            		<button type="submit" id="confirm" name="confirm" class="btn btn-info btn-block" ng-click="efetuarLogin()" ng-disabled="cadastroForm.$invalid">Entrar</button>
+					            	</div>
+					            </div>
+					            <div class="form-group col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+						           	<input type="checkbox" name="termo" id="termo" ng-model="checkConcordo">
+						           	<label class="termoLabel" for="termo"><small>Matenha me online?</small></label>
+						        </div>
+					        </div>
+					           
+			            </div>
+			        		
+	            	</div>
+					<span class="col-md-12 col-sm-12" style="height:230px;"></span>
+				</div>
             </div>
         </div>
     </div>
+</div>
+<div class="img-fundo hidden-xs"><img class="img-responsive" src="img/profile.png" alt="HELP US"></div>

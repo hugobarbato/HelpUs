@@ -12,7 +12,15 @@
 	color:gray;
 }
 
-
+.img-fundo{
+	position: absolute;
+	z-index: 2;
+	top:20px;
+	left:20px;
+}
+.img-fundo img{
+	height:100px;	
+}
 
 .radioButtondemoBasicUsage body {
   padding: 20px; }
@@ -39,7 +47,9 @@
   font-size: 0.9em; }
 
 
-
+md-backdrop{
+position: fixed;
+}
 
 .div-up{
 	position: fixed;
@@ -50,6 +60,13 @@
 	right: 0;
 	overflow: auto;
 	
+}
+
+.pop-up{
+	  position: fixed;
+	  z-index: -1;
+    width: 100%;
+    height:100%;
 }
 
 .btnClose{

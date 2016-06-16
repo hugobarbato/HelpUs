@@ -1,10 +1,11 @@
-/*global angular*/
+/*global angular $*/
     angular.module("app", [
     	'ui.router',
     	'ngMaterial',
     	'ngMessages', 
     	'satellizer', 
-    	'ui.utils.masks'
+    	'ui.utils.masks',
+    	'ngResource'
     ])
     //Config
 	  .config(function($mdThemingProvider, $stateProvider, $urlRouterProvider, $authProvider) {
@@ -38,7 +39,8 @@
 	    .state('cadastro', {
 	      url: "/cadastro",
 	      templateUrl: "Views/cadastro.html",
-	      controller: "cadastroCtrl"
+	      controller: "cadastroCtrl",
+	      controllerAs: 'cad'
 	    });
 	    
 	    
@@ -57,9 +59,9 @@
 
 	
 	    
-});
-	  /*.run(function($rootScope){
+})
+	  .run(function($rootScope){
 	  	$rootScope.$on('$stateChangeSuccess',function(){
 		    $("html, body").animate({ scrollTop: 0 }, 200);
 		})
-	  });*/
+	  });

@@ -13,7 +13,6 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
@@ -49,33 +48,7 @@ class AppController extends Controller
                 'Crud.ApiQueryLog'
             ]
         ]);
-         $this->loadComponent('Auth', [
-            'storage' => 'Memory',
-            'authenticate' => [
-                'Form' => [
-                    'scope' => ['tbUsuario.active' => 1],
-                    'fields' => [
-                        'username' => 'nm_email',
-                        'password' => 'cd_senha'
-                    ]
-                ],
-                'ADmad/JwtAuth.Jwt' => [
-                    'parameter' => 'token',
-                    'userModel' => 'tbUsuario',
-                    'scope' => ['tbUsuario.active' => 1],
-                    'fields' => [
-                        'username' => 'nm_email',
-                        'password' => 'cd_senha'
-                    ],
-                    'queryDatasource' => true
-                ]
-            ],
-            'unauthorizedRedirect' => false,
-            'checkAuthIn' => 'Controller.initialize'
-        ]);
-        
     }
-
 
     /**
      * Before render callback.
@@ -83,6 +56,7 @@ class AppController extends Controller
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return void
      */
+    
     public function beforeRender(Event $event)
     {
         if (!array_key_exists('_serialize', $this->viewVars) &&

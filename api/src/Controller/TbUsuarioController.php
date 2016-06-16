@@ -9,10 +9,11 @@ use App\Model\Entity\TbImgProduto;
 use App\Model\Entity\TbEndereco;
 use App\Model\Entity\TbContatoTelefone;
 use Cake\Event\Event;
-use Cake\Network\Exception;
+use Cake\Network\Exception\UnauthorizedException;
 use Cake\Utility\Security;
 use Cake\ORM\TableRegistry;
 use Firebase\JWT\JWT;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * TbUsuario Controller
@@ -24,7 +25,6 @@ class TbUsuarioController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow(['add', 'login']);
     }
     
     public function index()
@@ -263,14 +263,42 @@ class TbUsuarioController extends AppController
 
     public function login()
     {
-        if ($this->request->is('post')) {
+
+        /*if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
             $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente'));
+        }*/
+        $data = $this->request->data;
+        $user = TableRegistry::get('tbUsuario')->find()
+            ->where([
+                'nm_email' => $data['email'], 
+                'cd_senha' => $data['password']
+            ])
+            ->first();
+        
+        $this->set([
+            'result' => $user,
+            '_serialize' => ['result']
+        ]);
+        /*if (!$user) {
+            throw new UnauthorizedException('Invalid username or password');
         }
+    
+        $this->set([
+            'success' => true,
+            'data' => [
+                'token' => JWT::encode([
+                    'sub' => $user['id'],
+                    'exp' =>  time() + 604800
+                ],
+                Security::salt())
+            ],
+            '_serialize' => ['success', 'data']
+        ]);*/
     }
 
     public function logout()

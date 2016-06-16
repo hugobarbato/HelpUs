@@ -37,11 +37,6 @@ class TbUsuario extends Entity
         'cd_usuario' => false,
     ];
     
-
-    protected function _setPassword($password)
-    {
-        return (new DefaultPasswordHasher)->hash($password);
-    }
 }
 
 
