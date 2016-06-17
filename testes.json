@@ -14,10 +14,10 @@
         "ic_ativo": "1",
         "ic_nivel": "1"
     },
-    "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/token.json",
+    "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/login.json",
     "tbUsuario": {
-        "nm_email": "sist@sist.sist",
-        "cd_senha": "123456"
+        "email": "sist@sist.sist",
+        "password": "123456"
     },
     "url": "https://help-us-developerhbr.c9users.io/api/tbUsuario/doar  .json",
     "tbDoacao":{

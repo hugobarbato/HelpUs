@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="app" ng-controller="appCtrl">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,16 +10,18 @@
 
     <title>HelpUs</title>
     
-    <!-- Bootstrap Core -->
+    <!-- FRAMEWORKS CSS -->
     <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Fonts -->
+  	<link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/Lato.css" rel="stylesheet" type="text/css">
-    <link href="css/newMaster.css" rel="stylesheet" />
+	  <link href="css/profile.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <link href="lib/freelancer/freelancer.css" rel="stylesheet">
+    <link href="css/newMaster.css" rel="stylesheet" />
     
-    <!-- Angular FRAMEWORKS-->
+    <!--FRAMEWORKS-->
     <script src="lib/angular/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
     <script src="lib/moment/min/moment.min.js"></script>
@@ -31,7 +33,6 @@
   	<script src="lib/flow/dist/ng-flow-standalone.min.js"></script>
     <script src="lib/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
   	<script src="lib/angular-material/angular-material.min.js"></script>
-  	<link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
  
     <!-- Aplicação Angular -->
     <script type="text/javascript" src="js/app.js"></script>
@@ -39,9 +40,15 @@
     <!-- CONTROLLERS -->
     <script type="text/javascript" src="js/CTRL/loginCtrl.js"></script>
     <script type="text/javascript" src="js/CTRL/cadastroCtrl.js"></script>
+    <script type="text/javascript" src="js/CTRL/appCtrl.js"></script>
+    <script type="text/javascript" src="js/CTRL/feedCtrl.js"></script>
     
     <!-- FACTORIES -->
     <script type="text/javascript" src="js/FCT/cep.factory.js"></script>
+    
+    <!-- SERVICES -->
+    <script type="text/javascript" src="js/SRV/Dialog.service.js"></script>
+    <script type="text/javascript" src="js/SRV/Authentication.service.js"></script>
   
 </head>
 
@@ -49,7 +56,6 @@
 	  <!-- jQuery -->
     <script src="lib/jquery/jquery.min.js"></script>
 	  <!-- Bootstrap JS -->
-    <link href="lib/bootstrap/bootstrap.min.js" rel="stylesheet">
     <!-- Plugin JavaScript -->
     <script src="lib/jquery/jquery.easing.min.js"></script>
     <!-- Contact Form JavaScript -->
@@ -60,8 +66,19 @@
 	
 	<!-- Navigation -->
 	<div ui-view="navbar"></div>
+	<!-- SideMenu -->
+	<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" style="z-index:1100">
+      <md-content>
+        <md-button ng-click="close()" class="md-warn" style="float:right;">
+          <i class="fa fa-times fa-4x" aria-hidden="true"></i>
+        </md-button>
+      </md-content>
+      <md-content ui-view="side-menu"></md-content>
+  </md-sidenav>
 	<!-- Conteudo -->
-	<div ui-view class="row"></div>
+	<div ui-view></div>
+	<!-- Rodape -->
+	<div ui-view="rodape"></div>
 
 </body>
 </html>

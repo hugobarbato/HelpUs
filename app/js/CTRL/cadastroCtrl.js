@@ -4,7 +4,7 @@ angular.module('app')
 	.controller("cadastroCtrl", function($scope, $mdDialog, CepFactory, $location, $anchorScroll, $http, $state){
       var myDate = new Date();
       var msg = [];
-      // Definindo datas minimas e maximas
+      // Definindo datas minimas e maxima
       $scope.minDate = new Date(
           myDate.getFullYear()-130,
           myDate.getMonth(),
@@ -18,7 +18,7 @@ angular.module('app')
         $http.post('https://help-us-developerhbr.c9users.io/api/tbUsuario/add.json', $scope.user)
           	.success(function(response) {
     					  if (response.response.code === 0 ) {
-    					    console.info(JSON.stringify(response));
+    					    //console.info(JSON.stringify(response));
     					     msg = ['ERROR','Desculpe, alguns erros occoram em seu cadastro!', 'Entedi!'];
     					    if(response.response.errors !== undefined){
     					      response.response.errors.forEach(function (element, index, array){
@@ -29,11 +29,12 @@ angular.module('app')
     					      });
     					    }
     					  }else{
-    					    localStorage.setItem('user', JSON.stringify(response.response));
+    					    //console.info(response.response);
+    					    localStorage.setItem('user', JSON.stringify(response.response.user));
     					     msg = ['Sucesso!!!','Parabens pela iniciativa! Clique em OK comece agora a fazer a diferença!', 'OK'];
     					    $location.path("/doador")
     					  }
-    				  callDialog(msg);
+    				callDialog(msg);
     				})
     				.error(function(data, status, headers, config) {
     					  msg = ['ERROR','Falha na conexão com nossas fontes, tente novamente daqui a alguns segundos!', 'Entedi!'];

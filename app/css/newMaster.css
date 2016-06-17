@@ -75,6 +75,12 @@ position: fixed;
 	top:0;
 	right: 0;
 }
+.btnSide{
+	position: fixed;
+	z-index: 2040;
+	top:100px;
+	left: 0;
+}
 
 .checkTitleLabel{
 	font-size: 1.4em;

@@ -9,11 +9,11 @@ use App\Model\Entity\TbImgProduto;
 use App\Model\Entity\TbEndereco;
 use App\Model\Entity\TbContatoTelefone;
 use Cake\Event\Event;
-use Cake\Network\Exception\UnauthorizedException;
-use Cake\Utility\Security;
 use Cake\ORM\TableRegistry;
-use Firebase\JWT\JWT;
 use Cake\Auth\DefaultPasswordHasher;
+use Cake\Network\Exception\UnauthorizedException;
+use Firebase\JWT\JWT;
+use Cake\Utility\Security;
 
 /**
  * TbUsuario Controller
@@ -29,10 +29,11 @@ class TbUsuarioController extends AppController
     
     public function index()
     {
-        $tbUsuario = $this->paginate($this->TbUsuario);
-
-        $this->set(compact('tbUsuario'));
-        $this->set('_serialize', ['tbUsuario']);
+        $id =  $this->request->data['id'];
+        $user = $this->Cookie->read('User'.$id);
+        
+        $this->set(['user' => $user]);
+        $this->set('_serialize', ['user']);
     }
 
     /**
@@ -82,17 +83,12 @@ class TbUsuarioController extends AppController
              if($this->TbUsuario->save($tbUsuario)){
                   // Retorno da criação do Usuário
                   //$user = $event->subject;
-                  $returnUser = array(
-                        'id' =>  $tbUsuario['cd_usuario'] . " - " . $tbUsuario['nm_usuario'],
-                        'token' => JWT::encode(
-                            [
-                                'sub' => $tbUsuario['cd_usuario'],
-                                'name' => $tbUsuario['nm_usuario'],
-                                'nivel' => $tbUsuario['ic_nivel'],
-                                'exp' =>  time() + 604800
-                            ],
-                        Security::salt())
-                  );
+                   $returnUser = array(
+                        'data' => [
+                                'id' => $tbUsuario['cd_usuario'],
+                                'nome' => $tbUsuario['nm_usuario'],
+                                'nivel' => $tbUsuario['ic_nivel']
+                    ]);
                   
                   // Variavel de conexão
                   $conn = ConnectionManager::get('default');
@@ -263,47 +259,34 @@ class TbUsuarioController extends AppController
 
     public function login()
     {
-
-        /*if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-            }
-            $this->Flash->error(__('Usuário ou senha ínvalido, tente novamente'));
-        }*/
         $data = $this->request->data;
-        $user = TableRegistry::get('tbUsuario')->find()
+        $user = $this->TbUsuario->find('all')
             ->where([
                 'nm_email' => $data['email'], 
-                'cd_senha' => $data['password']
+                'cd_senha' => $data['senha']
             ])
             ->first();
-        
-        $this->set([
-            'result' => $user,
-            '_serialize' => ['result']
-        ]);
-        /*if (!$user) {
-            throw new UnauthorizedException('Invalid username or password');
+        if (!$user) {
+            throw new UnauthorizedException('Email ou senha inválidos');
         }
-    
+        
+        $this->Cookie->write('User'.$user['cd_usuario'], json_encode($user));
+        
         $this->set([
             'success' => true,
             'data' => [
-                'token' => JWT::encode([
-                    'sub' => $user['id'],
-                    'exp' =>  time() + 604800
-                ],
-                Security::salt())
+                'id' => $user['cd_usuario'],
+                'nome' => $user['nm_usuario'],
+                'nivel' => $user['ic_nivel']
             ],
             '_serialize' => ['success', 'data']
-        ]);*/
+        ]); 
     }
 
     public function logout()
     {
-        return $this->redirect($this->Auth->logout());
+        $id =  $this->request->data['id'];
+        $this->Cookie->delete('User'.$id);
     }
 
 

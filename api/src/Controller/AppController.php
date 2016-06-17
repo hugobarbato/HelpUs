@@ -33,6 +33,7 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Cookie');
         
         $this->loadComponent('Crud.Crud', [
             'actions' => [
@@ -48,6 +49,8 @@ class AppController extends Controller
                 'Crud.ApiQueryLog'
             ]
         ]);
+        $this->Cookie->httpOnly = true;
+        
     }
 
     /**
@@ -64,6 +67,10 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+    
+    public function beforeFilter(Event $event){
+        parent::beforeFilter($event);
     }
     
 }
