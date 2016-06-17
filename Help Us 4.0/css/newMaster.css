@@ -1,0 +1,96 @@
+.radio-group {
+	position: absolute;
+	display: inline;
+}
+#cadastroForm{
+	font-size:20px;
+}
+
+.radioGroup{
+	height:150px;
+	overflow:hidden;
+	color:gray;
+}
+
+
+
+.radioButtondemoBasicUsage body {
+  padding: 20px; }
+.radioButtondemoBasicUsage hr {
+  margin-left: -20px;
+  opacity: 0.3; }
+.radioButtondemoBasicUsage md-radio-group {
+  width: 150px; }
+.radioButtondemoBasicUsage p:last-child {
+  padding-bottom: 50px; }
+.radioButtondemoBasicUsage [ng-controller] {
+  padding: 0 20px; }
+.radioButtondemoBasicUsage .radioValue {
+  margin-left: 5px;
+  color: #0f9d58;
+  font-weight: bold;
+  padding: 5px; }
+.radioButtondemoBasicUsage md-icon {
+  margin: 0 20px 20px;
+  width: 128px;
+  height: 128px; }
+.radioButtondemoBasicUsage .ipsum {
+  color: saddlebrown;
+  font-size: 0.9em; }
+
+
+
+
+.div-up{
+	position: fixed;
+	z-index: 1031;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+	
+}
+
+.btnClose{
+	position: fixed;
+	z-index: 1040;
+	top:0;
+	right: 0;
+}
+
+.checkTitleLabel{
+	font-size: 1.4em;
+	color: #ACB6C3;
+	padding: 10px 0px;
+	font-weight: 100;
+}
+
+.checkboxLabel{
+	float: left;
+	margin-top: 0.3em;
+	margin-right: 1.3em;
+	font-size: 1.2em; 
+	font-weight: 100;
+	color: #ACB6C3;
+}
+
+.checkboxSexo{
+	position: relative;
+	float: left;
+	
+}
+
+.lembrarLabel{
+	color: #ACB6C3;
+	margin-top: 0.7em;
+}
+
+
+.voluntarioLabel{
+	font-weight: 100;
+	
+	margin: 3em 0;
+}
+
+/*Sisty testando css abaixo, por favor nao apagar e se quiserem add css acima deste comentario */

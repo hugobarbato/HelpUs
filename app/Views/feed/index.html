@@ -1,0 +1,59 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div style="position:fixed;top:110px;right: 0px;">
+			    <a ng-click="toggleRight()" ng-hide="isOpenRight()" class="btn btn-default"> 
+			        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+			    </a>
+			</div>
+			<div class="jumbotron">
+			  <h2>Bem Vindo {{user.nome}}!</h2>
+			  <p><small>Essas são as novidades de hoje:</small></p> 
+			</div>
+			<ul class="media-list fundo">
+			  <li class="media">
+				<div class="media-left">
+				  <a href="#">
+					<img class="media-object est" src="../img/img.jpg" alt="...">
+				  </a>
+				</div>
+				<div class="media-body">
+				  <h4 class="media-heading">Titulo da Noticia</h4>
+				  <p> Move the vertical slider to chose color and then click into color square on the left to get HTML color code for desired color cast.
+				  You can start with your own color by writing its color code in upper input field. 
+				  HTML Codes format:Each HTML code contains symbol "#" and 6 letters or numbers. These numbers are in hexadecimal numeral system. For example "FF" in hexadecimal represents number 255 in Decimal. </p>
+				</div>
+			  </li>
+			  <div class="btn-group btnprof row" role="group" aria-label="...">
+				<div class="col-md-12">
+				    <button type="button" class="btn btn-default">Ver Mais</button>
+				    <button type="button" class="btn btn-default">Doar</button>
+				</div>
+			  </div>  
+			</ul>
+	    	<!-- Paginação -->	
+    		<div class="col-lg-12" style="margin-top: 20px;">			 
+					<nav>
+					  <ul class="pagination  disp">
+						<li>
+						  <a href="#" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						  </a>
+						</li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li>
+						  <a href="#" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						  </a>
+						</li>
+					  </ul>
+					</nav>
+					</div> 
+        </div>
+    </div>
+</div>
+

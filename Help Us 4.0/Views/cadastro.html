@@ -1,0 +1,180 @@
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="modal-body">
+        	<h2 style="text-align:center">Cadastro</h2>
+        	<hr class="star-primary">
+        	<br>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-2 btnClose">
+        <a href="#">
+        	<i class="fa fa-times fa-4x" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-8 col-lg-offset-2">
+        	<form class="col-lg-12 col-md-12 col-sm-12" name="cadastroForm" id="cadastroForm">
+				
+				<md-content flex layout-padding class="md-block col-md-12">
+	        		<h4>Informações Pessoais</h4>
+	        		<hr>
+            	</md-content>
+            	
+        		<!-- Input Nome-->
+        		<md-input-container class="md-block col-md-8" flex-gt-sm>
+		            <label>Nome Completo</label>
+		            <input name="nome" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-model="user.nome" ng-maxlength="120" ng-required="true"/>
+		        	<div ng-messages="cadastroForm.nome.$error" role="alert">
+		        		<div ng-message="required">Por favor, preencha o campo nome!</div>
+                   		<div ng-message="pattern">Informe o nome completo.</div>
+                      	<div ng-message="maxlength">Nome muito longo!</div>
+                	</div>
+		        </md-input-container>
+		        
+		        	
+		        	
+		        <!-- Input Date -->
+		        <md-content  class="md-block col-md-4">
+			        <md-datepicker name="dateField" ng-model="myDate" md-placeholder="Enter date"
+				          required md-min-date="minDate" md-max-date="maxDate" ></md-datepicker>
+				      <div class="validation-messages" ng-messages="myForm.dateField.$error">
+				        <div ng-message="valid">The entered value is not a date!</div>
+				        <div ng-message="required">This date is required!</div>
+				        <div ng-message="mindate">Date is too early!</div>
+				        <div ng-message="maxdate">Date is too late!</div>
+				      </div>
+      			</md-content>
+        		
+        		
+        		<!-- Input Email-->
+        		<md-input-container class="md-block col-md-12">
+            	 	<label>Email para acesso</label>
+            		<input ng-pattern="/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/" type="email" ng-model="user.email" class="form-control" name="email" ng-required="true">
+            		<div ng-messages="cadastroForm.email.$error" role="alert">
+            			<div ng-message="required">Por favor, preencha o e-mail!</div>
+            			<div ng-message="pattern">Por favor, informe um e-mail válido.</div>
+            		</div>
+        		</md-input-container>
+        	
+        		<!-- Input Senha -->
+        		<md-input-container class="md-block col-md-12">
+            		<label>Senha</label>
+            		<input name="senha" ng-model="user.senha"  type="password" ng-required="true" ng-minlength="8" ng-maxlenght="20">
+            		<div ng-messages="cadastroForm.senha.$error" role="alert">
+            			<span ng-message="required">Por favor, preencha o campo Senha Padrão!</span>
+            			<span ng-message="minlength">O campo nome deve ter no mínimo 8 a 20 caracteres.</span>
+            			<span ng-message="maxlength">Senha muito longa!</span>
+            		</div>
+        		</md-input-container>
+        		
+        		<!-- Input GENERO --- Não aprece os Buttons!! -->
+        		<md-content flex layout-padding class="md-block col-md-12">
+            		<label style="color:silver">Gênero</label>
+            		<br>
+	       				<md-radio-group ng-model="user.sexo" layout="row" layout-xs="column">
+					      <md-radio-button value="H" class="md-primary">Masculino</md-radio-button>
+					      <md-radio-button value="F"> Feminino </md-radio-button>
+					      <md-radio-button value="O" class="md-primary">Outros</md-radio-button>
+					    </md-radio-group>	
+        		</md-content>
+        		
+        		<md-content flex layout-padding class="md-block col-md-12">
+        		<h4>Contatos</h4>
+        		<hr>
+            	</md-content>
+        		<!-- inputs Telefones -->
+        		<md-input-container class="md-block col-md-12">
+            		<label> Telefones</label>
+            		<input id="telefone" ng-model="user.contatos" name="telefone" type="text" ui-br-phone-number="ui-br-phone-number">
+            		<div ng-messages="cadastroForm.telefone.$error" role="alert">
+            			<div ng-message="required">Por favor, preencha o campo Telefone!</div>
+            			<div ng-message="pattern">Informe um telefone valido. </div>
+            			<div ng-message="brPhoneNumber">Campo telefone deve ter o formato (DD) DDDDD-DDDD.</div>
+            		</div>
+            	</md-input-container>
+            	
+            	<md-content flex layout-padding class="md-block col-md-12">
+        			<h4>Endereço</h4>
+        			<hr>
+            	</md-content>
+            	
+        		<!-- input CEP -->
+            	<md-input-container class="md-block col-md-12">
+            		<label>CEP</label>
+             		<input id="cep" name="cep" required="true"; ng-model="endereco.cep" ng-keyup="pegaCep()" type="text" class="form-control input-md" maxlength="9"   onblur="pesquisacep(this.value);" ui-br-cep-mask>
+            		<div ng-messages="cadastroForm.cep.$error" role="alert">
+            			<div ng-show="required">Por favor, informe o CEP.</div>
+            		</div>
+        		</md-input-container>
+        		
+        		<!-- input Estados -->
+        		<md-input-container class="md-block col-md-2">
+		            	<label>Estado</label>
+		            	<input ng-model="endereco.estado" id="estado" name="estado" type="text" class="form-control input-md" size="30" >        
+        		</md-input-container>
+            
+        		<!-- input Cidade -->
+        		<md-input-container class="md-block col-md-5">
+		            	<label>Cidade</label>
+		            	<input ng-model="endereco.cidade" id="cidade" name="cidade" type="text" class="form-control input-md"  size="25" >
+
+        		</md-input-container>
+            
+        		<!-- input Bairro -->
+        		<md-input-container class="md-block col-md-5">
+		            	<label>Bairro</label>
+		              	<input id="bairro" ng-model="endereco.bairro" name="bairro" type="text" class="form-control input-md" size="25" >
+        		</md-input-container>
+            
+        		<!-- Input Endereço -->
+        		<md-input-container class="md-block col-md-12">
+		            	<label>Endereço</label>
+		            	<input id="endereco" ng-model="endereco.endereco" name="endereco" class="form-control" type="text" size="45">
+        		</md-input-container>
+            	
+            	
+        		<!-- input Numero -->
+        		<md-input-container class="md-block col-md-6">
+		            	<label>Numero</label>
+		              	<input id="numero" name="numero" ng-model="endereco.numero" type="text" class="form-control input-md" size="5">
+        		</md-input-container>
+              
+        		<!-- input Complemento -->	  
+        		<md-input-container class="md-block col-md-6">
+            			<label>Complemento</label>
+        		  		<input id="complemento" name="complemento" ng-model="endereco.complemento" type="text" class="form-control input-md" >
+        		</md-input-container>
+
+        		<!-- Divisoria Checked Termo-->
+        		<div class="col-lg-8 col-lg-offset-2">
+           			<div class="modal-body"></div>
+        		
+		            <!-- Checked Voluntário -->
+		            <div class="form-group col-md-12 ">
+		            	<input type="checkbox" name="termo" id="termo" ng-model="checkConcordo">
+		            	<label class="termoLabel" for="termo"><small>Concordo com os termos de utilização do software <a href="termo.html">descritos aqui.</a></small></label>
+		            </div>
+        		</div>
+        		
+        		<!-- Divisoria Button-->
+        		<div class="col-lg-8 col-lg-offset-2">
+            		<div class="modal-body"></div>	
+		            <!-- Button -->
+		            <div class="form-group">
+		            	<div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
+		        		      <a href="#" type="reset" id="btnEnviar" name="btnEnviar" class="btn btn-info btn-block">
+		                		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+		            	      </a>
+		            	</div>
+		            	<div class="col-xs-4 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+		            		<button type="submit" id="confirm" name="confirm" class="btn btn-info btn-block" value='false' ng-click="efetuarCad()" ng-disabled="!checkConcordo || cadastroForm.$invalid">Enviar</button>
+		            	</div>
+		           </div>
+            	</div>
+            	
+           </form>	
+    	</div>
+	</div>
+    		
+	<span class="col-md-12 col-sm-12" style="height:50px;"></span>
+</div>

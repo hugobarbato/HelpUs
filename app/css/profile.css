@@ -1,0 +1,39 @@
+
+.jumbotron {
+margin-top: 13px;
+
+}
+
+.fundo {
+border: 3px solid #c7c7c7;
+padding: 7px 7px 60px 7px;
+border-radius: 13px;
+
+
+}
+
+.est {
+width: 70px;
+height: 70px;
+border-radius: 13px;
+border: 2px solid #2C3E50;
+}
+
+.btnprof{
+float:right;
+}
+
+.disp{
+	margin-left:38%;
+}
+
+.disp li>a, .disp>li>span{
+	background-color: #95A5A6;
+}
+
+.disp li>a:hover, .disp>li>span:hover{
+	background-color: #2C3E50;
+}
+
+
+
