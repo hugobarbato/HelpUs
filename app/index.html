@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app" ng-controller="appCtrl">
+<html lang="en" ng-app="app" ng-controller="appCtrl as app">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,8 @@
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/Lato.css" rel="stylesheet" type="text/css">
 	  <link href="css/profile.css" rel="stylesheet">
+	  <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+  	<script src=""></script>
     
     <!-- Custom CSS -->
     <link href="lib/freelancer/freelancer.css" rel="stylesheet">
@@ -33,6 +35,7 @@
   	<script src="lib/flow/dist/ng-flow-standalone.min.js"></script>
     <script src="lib/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
   	<script src="lib/angular-material/angular-material.min.js"></script>
+  	<script src="lib/angular-loading-bar/build/loading-bar.min.js"></script>
  
     <!-- Aplicação Angular -->
     <script type="text/javascript" src="js/app.js"></script>
@@ -64,6 +67,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="lib/freelancer/freelancer.js"></script>
 	
+	
 	<!-- Navigation -->
 	<div ui-view="navbar"></div>
 	<!-- SideMenu -->
@@ -79,6 +83,5 @@
 	<div ui-view></div>
 	<!-- Rodape -->
 	<div ui-view="rodape"></div>
-
 </body>
 </html>

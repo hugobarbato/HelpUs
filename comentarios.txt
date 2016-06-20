@@ -85,3 +85,6 @@ EXEMPLO
 
 
 //
+
+Botões "Alterar e Excluir" add as paginas de Feed - By: Carol 20/06
+Perfil doador - (Feito)

@@ -1,7 +1,8 @@
 //LOGIN
 /*global angular localStorage*/
 angular.module('app').controller("appCtrl", function($scope, $mdSidenav, $location, Authentication){
-  
+    var vm = this;
+    vm.load = !Authentication.load;
     $scope.logout = function(){
       Authentication.logout();
     }

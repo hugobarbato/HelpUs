@@ -26,7 +26,7 @@
 		        	<div ng-messages="cadastroForm.nome.$error" role="alert">
 		        		<div ng-message="required">Por favor, preencha o campo nome!</div>
                    		<div ng-message="pattern">Informe o nome completo.</div>
-                      	<div ng-message="maxlength">Nome muito longo!</div>
+                      	<div ng-message="maxlength">Nome muito extenso!</div>
                 	</div>
 		        </md-input-container>
 		        
@@ -36,8 +36,8 @@
 				          required md-min-date="minDate" md-max-date="maxDate" ></md-datepicker>
 				      <div class="validation-messages" ng-messages="myForm.dateField.$error">
 				        <div ng-message="valid">O valor preenchido não é uma data</div>
-				        <div ng-message="required">Este campo é obrigatorio!!!</div>
-				        <div ng-message="mindate">Esta data é muito velha!</div>
+				        <div ng-message="required">Este campo é obrigatório!!!</div>
+				        <div ng-message="mindate">Esta data é muito antiga!</div>
 				        <div ng-message="maxdate">Esta data é muito recente</div>
 				      </div>
       			</div>
@@ -58,12 +58,12 @@
             		<input name="senha" ng-model="user.senha"  type="password" ng-required="true" ng-minlength="8"  ng-maxlength="20">
             		<div ng-messages="cadastroForm.senha.$error" role="alert">
             			<span ng-message="required">Por favor, preencha o campo Senha Padrão!</span>
-            			<span ng-message="minlength">O campo nome deve ter no mínimo 8 a 20 caracteres.</span>
+            			<span ng-message="minlength">O campo Nome deve ter no mínimo de 8 a 20 caracteres.</span>
             			<span ng-message="maxlength">Senha muito longa!</span>
             		</div>
         		</md-input-container>
         		
-        		<!-- Input GENERO --- Não aprece os Buttons!! -->
+        		<!-- Input GENERO --- Não aparece os Buttons!! -->
         		<div  class=" col-xs-12">
             		<label style="color:silver">Gênero</label>
             		<br>
@@ -85,7 +85,7 @@
             		<input id="telefone" ng-model="user.contatos.tel" name="telefone" type="text" ui-br-phone-number="ui-br-phone-number">
             		<div ng-messages="cadastroForm.telefone.$error" role="alert">
             			<div ng-message="required">Por favor, preencha o campo Telefone!</div>
-            			<div ng-message="pattern">Informe um telefone valido. </div>
+            			<div ng-message="pattern">Informe um telefone válido. </div>
             			<div ng-message="brPhoneNumber">Campo telefone deve ter o formato (DD) DDDDD-DDDD.</div>
             		</div>
             	</md-input-container>

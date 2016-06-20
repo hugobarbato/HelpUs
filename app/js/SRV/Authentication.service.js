@@ -3,6 +3,7 @@
     angular
         .module('app')
         .service('Authentication', function ($http, $location, Dialog) {
+            this.load = false;
             this.estaLogado= function() {
               var data = JSON.parse(localStorage.getItem('user'));
               if(!data){
