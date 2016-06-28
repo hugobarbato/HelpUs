@@ -10,9 +10,9 @@ angular.module('app').controller("loginCtrl", function($scope, $location, Authen
 		    			if(response.success){
 							localStorage.setItem('user', JSON.stringify(response.data));	    				
 		    				if(response.data.nivel){
-		    					$location.path('/doador');
+		    					$location.path('/doador/');
 		    				}else{
-		    					$location.path('/administrador');
+		    					$location.path('/administrador/');
 		    				}
 		    			}else{
 	    					Dialog.alert(['Falha no login!',response.data.message, 'Entedi!']);

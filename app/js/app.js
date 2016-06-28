@@ -54,7 +54,9 @@
 		      url: "/doador",
 		      views: {
 				    "navbar": {
-				        templateUrl: "Views/navbar/nav-inside.html"
+				        templateUrl: "Views/navbar/nav-inside.html",
+				        controller: "navCtrl",
+				        controllerAs: 'nav'
 				    },
 				    "rodape": {
 				        templateUrl: "Views/rodape/rodape.html"
@@ -62,27 +64,83 @@
 				    "side-menu": {
 				    	templateUrl: "Views/navbar/menu-doador.html"
 				    }
-			  },  
-		      
+			  }
 		    })
 		    .state('doador.main',{
-		    	 url: "",
+		    	 url: "/",
 				 templateUrl: "Views/feed/index.html",
 				 controller: "feedCtrl",
 				 controllerAs: 'feed'
 		    })
+		    .state('doador.doar',{
+		    	 url: "/doar",
+				 templateUrl: "Views/doador/doacao.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
+		    })
+		    .state('doador.doacoes',{
+		    	 url: "/doacoes",
+				 templateUrl: "Views/doador/doacoes.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
+		    })
+		    .state('doador.conf',{
+		    	 url: "/configuracoes",
+				 templateUrl: "Views/doador/conf.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
+		    })
 		    .state('doador.addInstituicao', {
-		      url: "/add_instituicao",
+		      url: "/novainstituicao",
 			  templateUrl: "Views/doador/criarInstituicao.html",
 			  controller: "addInstituicaoCtrl",
 			  controllerAs: 'addInstituicao'
-			
 		    })
 		    .state('admin', {
 		      url: "/administrador",
 		      templateUrl: "Views/ADM/index.html",
 		      controller: "admCtrl",
 		      controllerAs: 'adm'
+		    })
+		    .state('instituicao', {
+		      url: "/instituicao",
+		      views: {
+				    "navbar": {
+				        templateUrl: "Views/navbar/nav-inside.html",
+				        controller: "navCtrl",
+				        controllerAs: 'nav'
+				    },
+				    "rodape": {
+				        templateUrl: "Views/rodape/rodape.html"
+				    },
+				    "side-menu": {
+				    	templateUrl: "Views/navbar/menu-institu.html"
+				    }
+			  }
+		    })
+		    .state('instituicao.main',{
+		    	 url: "/",
+				 templateUrl: "Views/inst/feed.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
+		    })
+		    .state('instituicao.doacoes',{
+		    	 url: "/doacoes",
+				 templateUrl: "Views/inst/doacoes.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
+		    })
+		    .state('instituicao.conf',{
+		    	 url: "/configurar",
+				 templateUrl: "Views/inst/configu.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
+		    })
+		    .state('instituicao.home',{
+		    	 url: "/home",
+				 templateUrl: "Views/inst/feed.html",
+				 controller: "feedCtrl",
+				 controllerAs: 'feed'
 		    });
 		})
 		.run(function($rootScope, cfpLoadingBar){

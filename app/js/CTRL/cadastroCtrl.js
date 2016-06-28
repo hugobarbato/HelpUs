@@ -1,7 +1,7 @@
 //CADASTRO DOADOR
 /*global angular localStorage*/
 angular.module('app')
-	.controller("cadastroCtrl", function($scope, $mdDialog, CepFactory, $location, $anchorScroll, $http, $state){
+	.controller("cadastroCtrl", function($scope, $mdDialog, CepFactory, $location, $anchorScroll, $http, $state, API){
       var myDate = new Date();
       var msg = [];
       // Definindo datas minimas e maxima
@@ -15,7 +15,7 @@ angular.module('app')
           myDate.getDate());
           
       $scope.efetuarCad = function(){
-        $http.post('https://help-us-developerhbr.c9users.io/api/tbUsuario/add.json', $scope.user)
+        $http.post(API.url+'tbUsuario/add.json', $scope.user)
           	.success(function(response) {
     					  if (response.response.code === 0 ) {
     					    //console.info(JSON.stringify(response));
@@ -31,8 +31,8 @@ angular.module('app')
     					  }else{
     					    //console.info(response.response);
     					    localStorage.setItem('user', JSON.stringify(response.response.user));
-    					     msg = ['Sucesso!!!','Parabens pela iniciativa! Clique em OK comece agora a fazer a diferença!', 'OK'];
-    					    $location.path("/doador")
+    					     msg = ['Sucesso!!!','Parabéns pela iniciativa! Clique em OK comece agora a fazer a diferença!', 'OK'];
+    					    $location.path("/doador/")
     					  }
     				callDialog(msg);
     				})
@@ -41,7 +41,7 @@ angular.module('app')
     				});
       }
       $scope.procuraCep = function () {
-		        	CepFactory.get({'cep': $scope.user.Endereco.cep}).$promise
+		        	CepFactory.get({'cep': $scope.instituicao.Endereco.cep}).$promise
     					.then(function success(result){
     					  if(!result.erro){
       						$scope.user.Endereco.endereco = result.logradouro;

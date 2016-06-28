@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Software de distribuição de donativos.">
     <meta name="author" content="Hugo Barbato Rodrigues, Beatriz, Carolina e Sistely">
+    <link rel="shortcut icon" href="Logo (1).ico" type="image/x-icon" />
     
 
-    <title>HelpUs</title>
+    <title>Help Us</title>
     
     <!-- FRAMEWORKS CSS -->
     <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -17,8 +18,7 @@
     <link href="css/Lato.css" rel="stylesheet" type="text/css">
 	  <link href="css/profile.css" rel="stylesheet">
 	  <link rel='stylesheet' href='lib/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
-  	<script src=""></script>
-    
+  	
     <!-- Custom CSS -->
     <link href="lib/freelancer/freelancer.css" rel="stylesheet">
     <link href="css/newMaster.css" rel="stylesheet" />
@@ -42,9 +42,11 @@
     
     <!-- CONTROLLERS -->
     <script type="text/javascript" src="js/CTRL/loginCtrl.js"></script>
+    <script type="text/javascript" src="js/CTRL/addInstituicaoCtrl.js"></script>
     <script type="text/javascript" src="js/CTRL/cadastroCtrl.js"></script>
     <script type="text/javascript" src="js/CTRL/appCtrl.js"></script>
     <script type="text/javascript" src="js/CTRL/feedCtrl.js"></script>
+    <script type="text/javascript" src="js/CTRL/navCtrl.js"></script>
     
     <!-- FACTORIES -->
     <script type="text/javascript" src="js/FCT/cep.factory.js"></script>
@@ -52,13 +54,14 @@
     <!-- SERVICES -->
     <script type="text/javascript" src="js/SRV/Dialog.service.js"></script>
     <script type="text/javascript" src="js/SRV/Authentication.service.js"></script>
+    <script type="text/javascript" src="js/SRV/Api.service.js"></script>
   
 </head>
 
 <body id="page-top" class="index">
 	  <!-- jQuery -->
     <script src="lib/jquery/jquery.min.js"></script>
-	  <!-- Bootstrap JS -->
+	  <!-- Bootstrap JS --><script type="text/javascript" src="lib/bootstrap/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
     <script src="lib/jquery/jquery.easing.min.js"></script>
     <!-- Contact Form JavaScript -->
@@ -80,7 +83,8 @@
       <md-content ui-view="side-menu"></md-content>
   </md-sidenav>
 	<!-- Conteudo -->
-	<div ui-view></div>
+	<div ui-view>
+	</div>
 	<!-- Rodape -->
 	<div ui-view="rodape"></div>
 </body>

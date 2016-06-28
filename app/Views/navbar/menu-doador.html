@@ -1,30 +1,30 @@
-<div id="sidebar-wrapper">
-	<ul class="sidebar-nav">
-		<li class="sidebar-brand">
-            <a ui-sref="doador">
-                <span class="fa fa-newspaper-o"></span> Noticias
-            </a>
+<div>
+	<ul class="menu-toggle-list">
+		<li>
+            <p ui-sref="doador.main">
+                <span class="fa fa-newspaper-o" ng-click="close()"></span> Noticias
+            </p>
         </li>
-        <li class="sidebar-brand">
-            <a ui-sref="doador.doar">
+       <li>
+            <p ui-sref="doador.doar">
 		    	<span class="glyphicon glyphicon-heart-empty"></span> Doar
-            </a>
+            </p>
         </li>
-		 <li class="sidebar-brand">
-            <a ui-sref="doador.doacoes">
+		 <li>
+            <p ui-sref="doador.doacoes">
                 <span class="glyphicon glyphicon-thumbs-up"></span> Doações
-            </a>
+            </p>
         </li>
-   		<li class="sidebar-brand">
-            <a ui-sref="doador.conf">
+   		<li>
+            <p ui-sref="doador.conf">
                 <span class="glyphicon glyphicon-cog"></span> Configurações
-            </a>
+            </p>
         </li>
-    	<li class="sidebar-brand">
+    	<li>
 			<hr>
-            <a ui-sref="doador.addInstituicao">
+            <p ui-sref="doador.addInstituicao">
                 <span class="glyphicon glyphicon-home"></span>  Criar uma Intituição
-            </a>
+            </p>
 			<hr>	
         </li>
     </ul>

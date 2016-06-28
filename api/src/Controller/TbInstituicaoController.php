@@ -50,11 +50,38 @@ class TbInstituicaoController extends AppController
      */
     public function add()
     {
+        $Enderecos = $this->request->data['Endereco'];
         $tbInstituicao = $this->TbInstituicao->newEntity();
         if ($this->request->is('post')) {
             $tbInstituicao = $this->TbInstituicao->patchEntity($tbInstituicao, $this->request->data);
             if ($this->TbInstituicao->save($tbInstituicao)) {
-               $response = array('code' => 1);
+                 // Variavel de conexão
+                  $conn = ConnectionManager::get('default');
+                  // Result da consulta obter cd_bairro
+                  $stmt = $conn->execute(
+                        'select cd_bairro from tb_bairro where nm_bairro = ? and cd_cidade = 
+                        (select cd_cidade from tb_cidade where nm_cidade = ? and cd_estado = 
+                        (select cd_estado from tb_estado where sg_estado = ?));',
+                        [$Enderecos['bairro'], $Enderecos['cidade'], $Enderecos['estado']]
+                  );
+                  // Pegando resultado
+                  $bairro = $stmt->fetch('assoc');
+                //Criando Acesso a registro da tabela
+                  $tableEndereco = TableRegistry::get('tbEndereco');
+                  // Entidade endereço 
+                  $tbEndereco = new tbEndereco([
+                        "cd_cep"=> $Enderecos["cep"],
+                        "nm_endereco"=> $Enderecos["endereco"],
+                        "nm_numero"=> $Enderecos["numero"],
+                        "cd_bairro" => $bairro['cd_bairro'],
+                        "cd_usuario" => $this->request->data['cd_usuario'],
+                        "cd_instituicao" => $tbInstituicao['cd_instituicao']
+                  ]);
+                  if($tableEndereco->save($tbEndereco)){
+                    $response = array('code' => 1);
+                  }else{
+                      $response = array('code' => 2);
+                  }
             } else {
                $response = array('code' => 0);
             }

@@ -21,4 +21,10 @@
         </div>			
     </div>     
 </nav>
-<span style="height:140px;" class="col-md-12"></span>
+<span style="height:140px;" class="col-xs-12 col-sm-12 col-md-12"></span>
+<div style="position:fixed;top:110px;right: 0px;z-index:2">
+    <a ng-click="toggleRight()" ng-hide="isOpenRight()" class="btn btn-default"> 
+       <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+    </a>
+    </div>
+<div ui-view></div>

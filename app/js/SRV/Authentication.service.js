@@ -2,7 +2,7 @@
 /*global angular localStorage */
     angular
         .module('app')
-        .service('Authentication', function ($http, $location, Dialog) {
+        .service('Authentication', function ($http, $location, Dialog, API) {
             this.load = false;
             this.estaLogado= function() {
               var data = JSON.parse(localStorage.getItem('user'));
@@ -12,7 +12,7 @@
               return data;
             }
             this.login = function(postData) {
-               return $http.post('https://help-us-developerhbr.c9users.io/api/tbUsuario/login.json', postData);
+               return $http.post(API.url+'/tbUsuario/login.json', postData);
             }
             this.logout = function() {
                 localStorage.clear();
