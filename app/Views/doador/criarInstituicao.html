@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="modal-body">
+        	<h2 style="text-align:center">Criar Instituição</h2>
+        	<hr class="star-primary">
+        	<br>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12" >
+        <div class="col-lg-8 col-lg-offset-2">
+        	<form class="col-lg-12 col-md-12 col-sm-12" name="cadastroForm" id="cadastroForm">
+				
+				<div  class=" col-md-12">
+	        		<h4 class="text-center">Informações Básicas</h4>
+	        		<hr>
+	        		
+            	<!-- Categoria da Insti -->
+				<md-input-container class=" col-sm-12 col-md-12 col-xs-12 " flex-gt-sm>
+			        <label>Categoria da Instituição</label>
+			        <md-select ng-model="instituicao.cd_categoria">
+			          <md-option ng-repeat="item in categorias" value="{{item.cd_categoria_instituicao}}">{{item.nm_categoria_instituicao}}</md-option>
+			        </md-select>
+			    </md-input-container>
+        		<!-- Input Nome-->
+        		<md-input-container class=" col-sm-12 col-md-12 col-xs-12 " flex-gt-sm>
+		            <label>Nome Completo</label>
+		            <input name="nome" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-model="instituicao.nm_instituicao" ng-maxlength="120" ng-required="true"/>
+		        	<div ng-messages="cadastroForm.nome.$error" role="alert">
+		        		<div ng-message="required">Por favor, informe o nome da instituição a ser cadastrada!</div>
+                   		<div ng-message="pattern">Informe um nome composto.</div>
+                      	<div ng-message="maxlength">Nome muito extenso!</div>
+                	</div>
+		        </md-input-container>
+				<!-- Desc -->
+				<md-input-container class="col-sm-12 col-md-12 col-xs-12" >
+				    <label>Descrição da instituição</label>
+				    <textarea name="desc" ng-model="instituicao.ds_instituicao" md-maxlength="500" rows="3" md-select-on-focus required></textarea>
+				    <div ng-messages="cadastroForm.desc.$error" role="alert">
+		        		<div ng-message="required">Por favor, informe uma descrição para a instituição a ser cadastrada!</div>
+                      	<div ng-message="md-maxlength">Limite de 500 caracteres!</div>
+                	</div>
+				</md-input-container>
+				<!-- CNPJ -->
+        		<md-input-container class=" col-sm-12 col-md-12 col-xs-12 " flex-gt-sm>
+		            <label>CNPJ</label>
+		            <input name="cnpj"  ng-model="instituicao.cd_cnpj" ng-required="true" ui-br-cnpj-mask/>
+		        	<div ng-messages="cadastroForm.cnpj.$error" role="alert">
+		        		<div ng-message="required">Por favor, informe o cnpj da instituição a ser cadastrada!</div>
+                      	<div ng-message="cnpj">Informe um cnpj válido!</div>
+                	</div>
+		        </md-input-container>
+				<!-- Divisoria -->
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+					</div>
+				</div>
+				<h3 class="text-center">Contato</h3>
+				<!-- inputs Telefones -->
+				<md-input-container class=" col-sm-12 col-md-12 col-xs-12 " flex-gt-sm>
+		            <label>Telefone / Celular</label>
+		            <input name="tel"  ng-model="instituicao.contato.telefone" ng-required="true" ui-br-phone-number/>
+		        	<div ng-messages="cadastroForm.tel.$error" role="alert">
+		        		<div ng-message="required">Por favor, informe o contato da instituição a ser cadastrada!</div>
+                      	<div ng-message="brPhoneNumber">Informe um telefone válido!</div>
+                	</div>
+		        </md-input-container>
+		        <md-input-container class=" col-sm-12 col-md-12 col-xs-12 " flex-gt-sm>
+		            <label>WebSite</label>
+		            <input name="web"  ng-model="instituicao.nm_web"/>
+		        </md-input-container>
+				<!-- Divisoria -->
+				<div class="col-lg-8 col-lg-offset-2">
+									<div class="modal-body">
+									</div>
+									</div>
+				<h3 class="text-center">Endereço</h3>
+				<!-- input CEP -->
+            	<md-input-container class=" col-xs-12">
+            		<label>CEP</label>
+             		<input id="cep" name="cep" required="true" ng-model="instituicao.Endereco.cep" type="text"  maxlength="9"  ng-blur="procuraCep()" ui-br-cep-mask/>
+            		<div ng-messages="cadastroForm.cep.$error" role="alert">
+            			<div ng-show="required">Por favor, informe o CEP!</div>
+            		</div>
+        		</md-input-container>
+        		<!-- input Estados -->
+        		<md-input-container class=" col-xs-12">
+		            	<label>Estado</label>
+		            	<input ng-model="instituicao.Endereco.estado" id="estado" name="estado" type="text"  size="25" >        
+        		</md-input-container>
+        		<!-- input Cidade -->
+        		<md-input-container class="col-xs-12">
+		            	<label>Cidade</label>
+		            	<input ng-model="instituicao.Endereco.cidade" id="cidade" name="cidade" type="text"   size="25" >
+
+        		</md-input-container>
+        		<!-- input Bairro -->
+        		<md-input-container class="col-xs-12">
+		            	<label>Bairro</label>
+		              	<input id="bairro" ng-model="instituicao.Endereco.bairro" name="bairro" type="text"  size="25" >
+        		</md-input-container>
+        		<!-- Input Endereço -->
+        		<md-input-container class=" col-xs-12">
+		            	<label>Endereço</label>
+		            	<input id="endereco" ng-model="instituicao.Endereco.endereco" name="endereco" type="text" size="25">
+        		</md-input-container>
+        		<!-- input Numero -->
+        		<md-input-container class=" col-xs-12">
+		            	<label>Número</label>
+		              	<input id="numero" name="numero" ng-model="instituicao.Endereco.numero" type="text"  size="5">
+        		</md-input-container>
+        		<!-- input Complemento -->	  
+        		<md-input-container class=" col-xs-12">
+            			<label>Complemento</label>
+        		  		<input id="complemento" name="complemento" ng-model="instituicao.Endereco.complemento" type="text"  >
+        		</md-input-container>
+				
+        		
+        		<!-- Divisoria Button-->
+        		<div class="col-lg-8 col-lg-offset-2" >
+            		<div class="modal-body"></div>	
+		            <!-- Button -->
+		            <div class="form-group">
+		            	<div class="col-xs-4 col-xs-offset-2 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
+		        		      <a href="#" type="reset" id="btnEnviar" name="btnEnviar" class="btn btn-info btn-block">
+		                		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+		            	      </a>
+		            	</div>
+		            	<div class="col-xs-4 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+		            		<button type="submit" id="confirm" name="confirm" class="btn btn-info btn-block" value='false' ng-click="efetuarCad()" ng-disabled="cadastroForm.$invalid">Enviar</button>
+		            	</div>
+		           </div>
+            	</div>
+            	</div>
+				<div class="col-md-12 col-sm-12" style="height:100px;"></div>
+           		</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

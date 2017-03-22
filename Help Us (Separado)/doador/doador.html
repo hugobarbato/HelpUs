@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Help Us</title>
+
+     <!-- Bootstrap Core CSS -->
+    <link href="lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="lib/freelancer/freelancer.css" rel="stylesheet">
+	 <link href="css/simple-sidebar.css" rel="stylesheet">
+	 <link href="css/profile.css" rel="stylesheet">
+    
+
+    <!-- Custom Fonts -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/Lato.css" rel="stylesheet" type="text/css">
+    <link href="css/newMaster.css" rel="stylesheet" />
+	 
+	<!-- Angular -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="lib/angular-aria/angular-aria.js"></script> 
+	<script src="lib/angular-animate/angular-animate.js"></script> 
+	<script src="lib/angular-material/angular-material.js"></script>
+	<script src="lib/satellizer/satellizer.min.js"></script>
+	<script src="lib/flow/dist/ng-flow-standalone.min.js"></script>
+    <script src="lib/angular-input-masks/releases/angular-input-masks-standalone.min.js"></script>
+	
+    <!-- Aplicação JS -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/cep.js"></script>
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div id="topo" class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Help Us</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Help Us</a>
+            </div> 
+
+ 
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+                        <form class="navbar-form navbar-right" role="search">
+							<div class="form-group">
+							  <input type="text" class="form-control" placeholder="Buscar">
+							</div>
+
+				<ul class="nav navbar-nav navbar-right">
+								   
+									<li class="page-scroll">
+										<a href="#">Sair</a>
+									</li>
+				</ul>					
+			 </form>
+           </div>			
+        </div>     
+    </nav>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+				<div id="sidebar-wrapper">
+					
+					<ul class="sidebar-nav">
+				 <li class="sidebar-brand">
+                    <a href="feed.html">
+                       Noticias
+                    </a>
+                </li>
+                <li class="sidebar-brand">
+                    <a href="doacao.html">
+                   Doar
+                    </a>
+                </li>
+				 <li class="sidebar-brand">
+                    <a href="realdoa.html">
+                      Doações Feitas
+                    </a>
+                </li>
+     
+				<li class="sidebar-brand">
+                    <a href="conf.html">
+                        Configurações
+                    </a>
+                </li>
+				<li class="sidebar-brand">
+                    <a href="criainst.html">
+                        Criar uma Intituição
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2" style="margin-left:-35px;position:fixed">
+					   <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"> <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
+					</div>
+	
+					<div class="col-lg-8 col-lg-offset-2">
+							<div class="modal-body">
+								<h1 class="text-center">Cadastro Da Doação</h1>
+								
+							<!-- Divisoria -->
+							<div class="col-lg-8 col-lg-offset-2">
+							<div class="modal-body">
+							</div>
+							</div>
+								
+								
+								</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-8 col-lg-offset-2">
+								<form name="sentMessage" id="contactForm" novalidate>
+							
+							
+							
+							<!--  Nome produto -->
+							<div class="row control-group">
+								<div class="form-group col-xs-12 floating-label-form-group controls">
+									<label>Nome do Produto</label>
+									<input type="text" class="form-control" placeholder="Nome do Produto" id="Name do Produto" >
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+							
+							<!-- Desc Produto-->
+							
+							<div class="row control-group">
+								<div class="form-group col-xs-12 floating-label-form-group controls">
+									<label>Descrição do Produto</label>
+									<textarea class="form-control" placeholder="Descrição do produto"></textarea>
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+					
+							<!-- QT produto -->
+							<div class="row control-group">
+								<div class="form-group col-xs-12 floating-label-form-group controls">
+									<label>Quantidade do Produto</label>
+									<input type="number" class="form-control" placeholder="Quantidade do produto" id="Quantidade" >
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+							
+							<!-- Img do produto -->
+							<div class="row control-group">
+								<div  class="form-group col-xs-12 floating-label-form-group controls">
+									<label for="img">Imagem do Produto</label>
+									<input id="img" name="Imagem" type="file" placeholder="Imagem do Produto" class="form-control input-md senha" style="display:none">
+									<div style="color:#ACB6C0"><button class="btn btn-default" style="margin-right:12px;">Carregar Foto</button>Nenhuma foto carregada</div>
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>  
+							
+									<div class="row control-group">
+								<div class="form-group col-xs-12 floating-label-form-group controls">
+									<label>Categoria</label>
+									<select id="Catego" name="complemento" type="text" placeholder="Complemento"  class="form-control input-md" style="border:0px transparent; font-size:23px; color:#ACB6C0">
+									<option style=" value="5" >Selecione a Categoria</option> 
+									<option value="5">1</option> 
+									<option value="5">2</option> 
+									<option value="5">3</option> 
+									<option value="5">4</option>
+									<option value="5">5</option> 
+									  </select>
+									  </div>
+									</div>
+
+
+							
+							<!-- Divisoria -->
+							<div class="col-lg-8 col-lg-offset-2">
+							<div class="modal-body">
+
+							</div>	
+									
+									
+									
+									<!-- Button -->
+									<div class="form-group">
+									  <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+										<button type="reset" id="btnEnviar" name="btnEnviar" class="btn btn-default">
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+									  </div>
+									  
+									  <div class="col-xs-4 col-sm-4 col-md-4" style="margin-left:-100px">
+										<button type="submit" id="confirm" name="confirm" class="btn btn-default" value='false'>Finalizar Doação</button>
+												</div>
+											</div>
+										</fieldset>
+										</form>				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>			
+<br>
+<br>				
+				
+				
+	
+				
+				
+ <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Nosso Email</h3>
+                        <p>help.us@outlook.com.br</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Siga Nossas Redes Sociais</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Sobre</h3>
+                       <p>Software de Distribuição de Donativos</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                         Help Us 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+	 
+	 
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+     <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+		if($("#wrapper").hasClass('toggled') == true){
+			$("#menu-toggle").html('<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>');
+		}else{
+		$("#menu-toggle").html('<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>');
+		}
+
+    });
+    </script>
+
+	
+</body>
+
+</html>				
+				

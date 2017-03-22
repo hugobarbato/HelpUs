@@ -1,0 +1,104 @@
+
+<div id="page-content-wrapper" style="">
+	<div class="container-fluid">
+        <div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2 col-md-12">
+				<div class="modal-body">
+					<h1 style="text-align:center">Doação</h1>
+					<hr class="star-primary">
+					<br>
+		        </div>
+		    </div>
+			<div class="col-lg-12 col-md-12 col-sm-12" >
+				<div class="col-lg-8 col-lg-offset-2 col-md-12">
+					<form class="col-lg-12 col-md-12 col-sm-12" name="cadastroForm" >
+						<div  class=" col-md-12">
+						<div class="row">
+							<h4 class="text-center">Informações do Produto</h4>
+							<hr>
+		            	
+						<!-- Input Nome da instituição-->
+						<md-input-container class="col-sm-12 col-md-12" flex-gt-sm>
+							<label>Instituição</label>
+							<md-select ng-model="user.cd_instituicao" name="instituicao" required="true">
+								<md-option ng-repeat="state in ctrl.states">
+									{{}}
+								</md-option>
+							</md-select>
+						<div ng-messages="cadastroForm.instituicao.$error" role="alert">
+							<div ng-message="required">Por favor, escolha a instituição!</div>
+						</div>
+						</md-input-container>
+						</div>
+						<div class="row">
+						<md-input-container class="col-sm-12 col-md-12">
+							<label>Categoria</label>
+							<md-select ng-model="user.cd_categoria" required="true">
+								<md-option ng-value="1">1</md-option>
+								<md-option ng-value="2">2</md-option>
+								<md-option ng-value="3">3</md-option>
+								<md-option ng-value="4">4</md-option>
+								<md-option ng-value="5">5</md-option>
+							</md-select>
+						</md-input-container>
+					</div>				
+						<!-- Input Nome da instituição-->
+					<div class="row">	
+		        		<md-input-container class="col-sm-12 col-md-12" flex-gt-sm>
+				            <label>Nome do Produto</label>
+				            <input name="nome" ng-pattern="/^[a-zA-ZÀ-Úà-ú]+[ ][a-zA-ZÀ-Úà-ú ]+$/" ng-model="user.nm_produto" ng-maxlength="120" ng-required="true"/>
+				        	<div ng-messages="cadastroForm.nome.$error" role="alert">
+				        		<div ng-message="required">Por favor, preencha o campo nome!</div>
+		                   		<div ng-message="pattern">Informe o correto.</div>
+		                      	<div ng-message="maxlength">Nome muito extenso!</div>
+		                	</div>
+				       	 </md-input-container>
+					</div>	
+									<!-- Desc Produto-->
+									
+						<md-input-container class="col-sm-12 col-md-12" flex-gt-sm>
+							<label>Descrição do Produto</label>
+							<textarea name="desc" ng-model="user.ds_produto" md-maxlength="500" rows="3" md-select-on-focus required></textarea>
+						    <div ng-messages="cadastroForm.desc.$error" role="alert">
+				        		<div ng-message="required">Por favor, informe uma descrição para a instituição a ser cadastrada!</div>
+		                      	<div ng-message="md-maxlength">Limite de 500 caracteres!</div>
+		                	</div>
+						</md-input-container>
+							
+									<!-- input Numero -->
+		        		<md-input-container class=" col-xs-12">
+				            <label>Quantidade do Produto</label>
+				            <input id="quantidade" name="quantidade" ng-model="user.qt_produto" type="text" max="200" size="10" required="true">
+				            <div ng-messages="cadastroForm.quantidade.$error" role="alert">
+				        		<div ng-message="required">Por favor, informe a quantidade de produtos!</div>
+		                      	<div ng-message="max">Limite de 200 produtos!</div>
+		                      </div>	
+		        		</md-input-container>
+							
+		
+									<!-- Divisoria -->
+									<div class="col-lg-8 col-lg-offset-2">
+										<div class="modal-body"></div>	
+										<div class="form-group">
+											<div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+												<button type="reset" id="btnEnviar" name="btnEnviar" class="btn btn-default">
+													<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+												</button>
+											</div>
+												  
+											<div class="col-xs-4 col-sm-4 col-md-4" style="margin-left:-100px">
+												<button type="submit" id="confirm" name="confirm" class="btn btn-default" value='false'>Finalizar Doação</button>
+											</div>
+										</div>
+									</div>
+						</div>
+					</form>
+					
+						<span style="height:100px;widht:100%; color:#FFF">Sistely S2 Beatriz!!!</span>
+				</div>
+			</div>		
+		</div>			
+	</div>			
+</div>			
+				
+				
